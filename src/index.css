@@ -8,7 +8,7 @@
   --accent-color: #3498db;
   --accent-light: #5dade2;
   --accent-dark: #2980b9;
-  --dark-bg: #121212;
+  --dark-bg: #0a1525;
   --card-bg: #1e1e1e;
   --text-light: #f5f5f5;
   --text-muted: #a0a0a0;
@@ -83,7 +83,7 @@ body {
 }
 
 .team-card img {
-  @apply transition-all duration-300 group-hover:scale-105;
+  @apply transition-all duration-300;
 }
 
 .btn {
@@ -103,12 +103,12 @@ body {
 }
 
 .section-title {
-  @apply text-3xl md:text-4xl font-bold mb-8 relative inline-block;
+  @apply text-3xl md:text-4xl font-bold mb-16 relative inline-block;
 }
 
 .section-title::after {
   content: "";
-  @apply absolute bottom-0 left-0 h-1 bg-gradient-to-r from-[var(--primary-color)] to-[var(--accent-color)] rounded-full;
+  @apply absolute -bottom-6 left-0 h-1 bg-gradient-to-r from-[var(--primary-color)] to-[var(--accent-color)] rounded-full;
   width: 60%;
 }
 

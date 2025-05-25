@@ -13,7 +13,10 @@ const Footer: React.FC = () => {
           <div>
             <div className="flex items-center gap-3 mb-6">
               <img src="/logo.svg" alt="Control Pass Logo" className="w-10 h-10" />
-              <h3 className="text-2xl font-audiowide text-white uppercase">Control Pass</h3>
+              <div>
+                <h3 className="text-2xl font-audiowide">Control Pass</h3>
+                <span className="text-[var(--primary-color)]">Kft.</span>
+              </div>
             </div>
             <p className="text-[var(--text-muted)]">
               {t('about.description').substring(0, 120)}...
