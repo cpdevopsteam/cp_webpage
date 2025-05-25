@@ -175,7 +175,7 @@ body {
 }
 
 .partners-container .swiper-pagination {
-  @apply bottom-0;
+  @apply bottom-[-30px];
 }
 
 .partners-container .swiper-pagination-bullet {
