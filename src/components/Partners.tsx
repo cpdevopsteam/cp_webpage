@@ -3,7 +3,10 @@ import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay } from 'swiper/modules';
+import { Autoplay, Navigation, Pagination } from 'swiper/modules';
+
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 const Partners: React.FC = () => {
   const { t } = useTranslation();
@@ -28,6 +31,14 @@ const Partners: React.FC = () => {
     {
       name: "Partner 4",
       logo: "https://images.pexels.com/photos/2977551/pexels-photo-2977551.jpeg?auto=compress&cs=tinysrgb&w=300"
+    },
+    {
+      name: "Partner 5",
+      logo: "https://images.pexels.com/photos/2977553/pexels-photo-2977553.jpeg?auto=compress&cs=tinysrgb&w=300"
+    },
+    {
+      name: "Partner 6",
+      logo: "https://images.pexels.com/photos/2977555/pexels-photo-2977555.jpeg?auto=compress&cs=tinysrgb&w=300"
     }
   ];
 
@@ -45,15 +56,21 @@ const Partners: React.FC = () => {
           </motion.h2>
         </div>
 
-        <div ref={ref} className="relative">
+        <div ref={ref} className="relative partners-container">
           <Swiper
-            modules={[Autoplay]}
+            modules={[Autoplay, Navigation, Pagination]}
             spaceBetween={30}
             slidesPerView={2}
             loop={true}
             autoplay={{
-              delay: 3000,
+              delay: 2000,
               disableOnInteraction: false,
+              pauseOnMouseEnter: true
+            }}
+            navigation={true}
+            pagination={{
+              clickable: true,
+              dynamicBullets: true
             }}
             breakpoints={{
               640: {
