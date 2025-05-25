@@ -99,7 +99,7 @@ body {
 }
 
 .btn-login {
-  @apply bg-transparent border border-[var(--accent-color)] text-[var(--accent-color)] hover:bg-[var(--accent-color)] hover:text-white px-4 py-1 rounded-full flex items-center gap-2 text-sm;
+  @apply bg-[var(--accent-color)] text-white hover:bg-[var(--accent-light)] px-4 py-1 rounded-full flex items-center gap-2 text-sm transition-colors duration-300;
 }
 
 .section-title {
