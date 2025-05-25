@@ -100,9 +100,8 @@ const Contact: React.FC = () => {
 
             <div className="mt-12">
               <div className="w-full h-64 rounded-lg overflow-hidden">
-                {/* Embed a map of Hungary */}
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2725.3121641115066!2d19.06172157692678!3d47.507284071111866!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4741dc6e37d7cbb5%3A0x4a6fbd33a3701608!2zQnVkYXBlc3QsIEFuZHLDoXNzeSBldCAoVXRjYSkgMTAwLCAxMDYy!5e0!3m2!1sen!2shu!4v1717006962797!5m2!1sen!2shu"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2754.900603038391!2d18.24183847692349!3d46.07655509797576!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4742b19b933a7c2d%3A0xb3b8a26f5a2c5e9a!2zUMOpY3MsIFZhZMOhc3ogdS4gODMsIDc2Mjc!5e1!3m2!1shu!2shu!4v1710835847099!5m2!1shu!2shu"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
