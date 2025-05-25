@@ -119,7 +119,7 @@ body {
 
 .logo-title::after {
   content: "";
-  @apply absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[var(--primary-color)] to-[var(--accent-color)] rounded-full;
+  @apply absolute bottom-0 left-1/4 right-1/4 h-0.5 bg-gradient-to-r from-[var(--primary-color)] to-[var(--accent-color)] rounded-full;
 }
 
 /* Swiper custom styles */
