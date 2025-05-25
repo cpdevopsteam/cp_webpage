@@ -13,8 +13,8 @@ const Header: React.FC = () => {
     { id: 'home', label: t('navigation.home'), href: '#hero' },
     { id: 'services', label: t('navigation.services'), href: '#services' },
     { id: 'about', label: t('navigation.about'), href: '#about' },
-    { id: 'projects', label: t('navigation.projects'), href: '#projects' },
     { id: 'team', label: t('navigation.team'), href: '#team' },
+    { id: 'projects', label: t('navigation.projects'), href: '#projects' },
     { id: 'contact', label: t('navigation.contact'), href: '#contact' },
   ];
 

@@ -23,8 +23,8 @@ const Footer: React.FC = () => {
               <li><a href="#hero" className="nav-link">{t('navigation.home')}</a></li>
               <li><a href="#services" className="nav-link">{t('navigation.services')}</a></li>
               <li><a href="#about" className="nav-link">{t('navigation.about')}</a></li>
-              <li><a href="#projects" className="nav-link">{t('navigation.projects')}</a></li>
               <li><a href="#team" className="nav-link">{t('navigation.team')}</a></li>
+              <li><a href="#projects" className="nav-link">{t('navigation.projects')}</a></li>
               <li><a href="#contact" className="nav-link">{t('navigation.contact')}</a></li>
             </ul>
           </div>
