@@ -44,11 +44,11 @@ body {
 
 .nav-link::after {
   content: '';
-  @apply absolute left-0 bottom-[-4px] w-0 h-0.5 bg-[var(--primary-color)] transition-all duration-300;
+  @apply absolute left-0 bottom-[-4px] w-0 h-0.5 bg-[var(--accent-color)] transition-all duration-300;
 }
 
 .nav-link:hover {
-  @apply text-[var(--primary-color)];
+  @apply text-[var(--accent-light)];
 }
 
 .nav-link:hover::after {
@@ -75,7 +75,7 @@ body {
 }
 
 .service-card {
-  @apply p-6 rounded-lg bg-[var(--card-bg)] shadow-md transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10 border border-gray-800 hover:border-[var(--primary-color)];
+  @apply p-6 rounded-lg bg-[var(--card-bg)] shadow-md transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10 border border-gray-800 hover:border-[var(--accent-color)];
 }
 
 .team-card {
@@ -91,15 +91,15 @@ body {
 }
 
 .btn-primary {
-  @apply bg-[var(--accent-color)] text-white hover:bg-[var(--primary-color)];
+  @apply bg-gradient-to-r from-[var(--primary-color)] to-[var(--accent-color)] text-white hover:opacity-90;
 }
 
 .btn-outline {
-  @apply border border-[var(--accent-color)] text-[var(--accent-color)] hover:bg-[var(--primary-color)] hover:border-[var(--primary-color)] hover:text-white;
+  @apply border border-[var(--accent-color)] text-[var(--accent-color)] hover:bg-[var(--accent-color)] hover:text-white;
 }
 
 .btn-login {
-  @apply bg-[var(--accent-color)] text-white hover:bg-[var(--primary-color)] px-4 py-1 rounded-full flex items-center gap-2 text-sm transition-colors duration-300;
+  @apply bg-[var(--accent-color)] text-white hover:bg-[var(--accent-light)] px-4 py-1 rounded-full flex items-center gap-2 text-sm transition-colors duration-300;
 }
 
 .section-title {
