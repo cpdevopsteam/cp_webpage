@@ -1,0 +1,206 @@
+{
+  "navigation": {
+    "home": "Home",
+    "services": "Services",
+    "projects": "Projects",
+    "team": "Our Team",
+    "about": "About Us",
+    "contact": "Contact",
+    "login": "Login"
+  },
+  "hero": {
+    "slide1": {
+      "title": "Complex Industrial Solutions",
+      "subtitle": "Electrical - Security - IT and Control Systems"
+    },
+    "slide2": {
+      "title": "Solar Power Plant Implementation",
+      "subtitle": "From planning to execution and operation"
+    },
+    "slide3": {
+      "title": "Security Systems",
+      "subtitle": "Asset protection and monitoring in industrial facilities"
+    },
+    "slide4": {
+      "title": "24/7 Monitoring",
+      "subtitle": "Remote supervision and quick troubleshooting"
+    },
+    "slide5": {
+      "title": "Data Analysis and AI",
+      "subtitle": "Artificial intelligence based predictions"
+    },
+    "cta": "Learn More"
+  },
+  "services": {
+    "title": "Our Services",
+    "planning": {
+      "title": "Planning & Preparation",
+      "items": [
+        "Industrial investment preparation",
+        "Design",
+        "Groundwork",
+        "Perimeter protection"
+      ]
+    },
+    "implementation": {
+      "title": "Implementation",
+      "items": [
+        "Load-bearing structure development",
+        "Power transmission cable laying",
+        "Station installation"
+      ]
+    },
+    "electrical": {
+      "title": "Electrical Works",
+      "items": [
+        "Low and medium voltage station and equipment installation, measurement",
+        "Electrical safety and standards inspections"
+      ]
+    },
+    "security": {
+      "title": "Security Systems",
+      "items": [
+        "Perimeter protection monitoring",
+        "Thermal camera systems",
+        "CCTV systems",
+        "Access control systems"
+      ]
+    },
+    "it": {
+      "title": "IT & Communication",
+      "items": [
+        "Optical network development",
+        "Control center installation",
+        "Radio communication setup",
+        "Server commissioning",
+        "Secure VPN connection establishment"
+      ]
+    },
+    "commissioning": {
+      "title": "Commissioning",
+      "items": [
+        "Programming protection elements",
+        "Security and IT system parameter setting",
+        "Preparation of necessary logs"
+      ]
+    },
+    "operations": {
+      "title": "Facility Operations",
+      "items": [
+        "Technical supervision",
+        "Troubleshooting",
+        "Inspection maintenance",
+        "Thermal camera drone inspection",
+        "Fault repair",
+        "Area maintenance",
+        "Audit",
+        "24/7 customer service"
+      ]
+    },
+    "monitoring": {
+      "title": "Monitoring",
+      "items": [
+        "Remote monitoring of facilities",
+        "Telemetry data monitoring",
+        "Security system operation",
+        "IT and communication system monitoring"
+      ]
+    },
+    "dataAnalysis": {
+      "title": "Data Analysis",
+      "items": [
+        "Telemetry data processing",
+        "Data storage",
+        "Stored data analysis",
+        "AI-based prediction"
+      ]
+    }
+  },
+  "projects": {
+    "title": "Projects",
+    "viewProject": "View Project",
+    "items": [
+      {
+        "title": "Halmajugra 20 MW Solar Power Plant",
+        "description": "Electrical works and security system implementation for nominal capacity power plant"
+      },
+      {
+        "title": "45 x 1 MW Solar Power Plants",
+        "description": "Establishment of nominal capacity power plants throughout the country"
+      },
+      {
+        "title": "Mezőcsát 50 MW Solar Power Plant",
+        "description": "Electrical works, security and control system implementation for nominal capacity power plant"
+      },
+      {
+        "title": "Enertech and KVGY Transformer Stations",
+        "description": "Implementation of thermal camera protection"
+      },
+      {
+        "title": "IBCS Server Room",
+        "description": "Construction, structured optical and copper network establishment"
+      },
+      {
+        "title": "Over 100 MW Total Capacity Power Plants",
+        "description": "Operation and supervision"
+      }
+    ]
+  },
+  "team": {
+    "title": "Our Team",
+    "description": "Our expert team is committed to delivering high-quality work.",
+    "members": [
+      {
+        "name": "Péter Bérces",
+        "role": "CEO",
+        "quote": "Our world is constantly changing. Modern electronic solutions make business life more comfortable. But a responsible leader cannot compromise on security."
+      },
+      {
+        "name": "John Sample",
+        "role": "Technical Director",
+        "quote": "Quality work is the best reference."
+      },
+      {
+        "name": "Gabriel Example",
+        "role": "Electrical Engineer",
+        "quote": "Quality is in the details."
+      },
+      {
+        "name": "Tom Test",
+        "role": "IT Expert",
+        "quote": "Security is not a product but a process."
+      }
+    ]
+  },
+  "about": {
+    "title": "About Us",
+    "founded": "Founded: 2020",
+    "description": "Control Pass Kft. was founded in 2020 with the intention of providing high-quality and complex services for the construction, supervision, and operation of electrical, security, IT, and control systems for industrial facilities.",
+    "mission": "Our determined goal is to develop a quality and secure service package for our clients in all aspects, from the design phase, through implementation and project management, to monitoring and operational solutions.",
+    "experience": "We have serious experience in implementing industrial facilities utilizing renewable energies. Whether it's 50 kilowatts or several hundred megawatt power plants.",
+    "monitoring": "Thanks to our self-developed monitoring and control technology solutions, we are able to monitor the built systems in real-time. And with our extensive network, we can intervene in a short time in case of a problem.",
+    "coverage": "We currently implement nationwide coverage with 6 bases."
+  },
+  "contact": {
+    "title": "Contact",
+    "address": "Address",
+    "addressValue": "1062 Budapest, Andrássy út 100. I/4, Hungary",
+    "phone": "Phone",
+    "phoneValue": "+36 20 123 4567",
+    "email": "Email",
+    "emailValue": "info@controlpass.hu",
+    "hours": "Business Hours",
+    "hoursValue": "Mon-Fri: 8:00 AM - 5:00 PM",
+    "formName": "Name",
+    "formEmail": "Email",
+    "formSubject": "Subject",
+    "formMessage": "Message",
+    "formSubmit": "Send",
+    "formSuccess": "Thank you for your message! We will get back to you soon."
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
+  }
+}

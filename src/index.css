@@ -1,0 +1,139 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-color: #FF8C42;
+  --secondary-color: #2a2a2a;
+  --accent-color: #3498db;
+  --accent-light: #5dade2;
+  --accent-dark: #2980b9;
+  --dark-bg: #121212;
+  --card-bg: #1e1e1e;
+  --text-light: #f5f5f5;
+  --text-muted: #a0a0a0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  @apply bg-[var(--dark-bg)] text-[var(--text-light)];
+}
+
+.font-audiowide {
+  font-family: 'Audiowide', sans-serif;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--dark-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 4px;
+}
+
+/* Navigation animations */
+.nav-link {
+  @apply relative text-sm font-medium text-white transition-colors duration-300;
+}
+
+.nav-link::after {
+  content: '';
+  @apply absolute left-0 bottom-[-4px] w-0 h-0.5 bg-[var(--accent-color)] transition-all duration-300;
+}
+
+.nav-link:hover {
+  @apply text-[var(--accent-light)];
+}
+
+.nav-link:hover::after {
+  @apply w-full;
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Hover effects */
+.hover-scale {
+  transition: transform 0.3s ease-in-out;
+}
+
+.hover-scale:hover {
+  transform: scale(1.03);
+}
+
+.service-card {
+  @apply p-6 rounded-lg bg-[var(--card-bg)] shadow-md transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10 border border-gray-800 hover:border-[var(--accent-color)];
+}
+
+.team-card {
+  @apply p-4 rounded-lg bg-[var(--card-bg)] shadow-md transition-all duration-300 hover:shadow-lg overflow-hidden;
+}
+
+.team-card img {
+  @apply transition-all duration-300 group-hover:scale-105;
+}
+
+.btn {
+  @apply px-6 py-2 rounded-md transition-all duration-300 font-medium;
+}
+
+.btn-primary {
+  @apply bg-gradient-to-r from-[var(--primary-color)] to-[var(--accent-color)] text-white hover:opacity-90;
+}
+
+.btn-outline {
+  @apply border border-[var(--accent-color)] text-[var(--accent-color)] hover:bg-[var(--accent-color)] hover:text-white;
+}
+
+.btn-login {
+  @apply bg-transparent border border-[var(--accent-color)] text-[var(--accent-color)] hover:bg-[var(--accent-color)] hover:text-white px-4 py-1 rounded-full flex items-center gap-2 text-sm;
+}
+
+.section-title {
+  @apply text-3xl md:text-4xl font-bold mb-8 relative inline-block;
+}
+
+.section-title::after {
+  content: "";
+  @apply absolute bottom-0 left-0 h-1 bg-gradient-to-r from-[var(--primary-color)] to-[var(--accent-color)] rounded-full;
+  width: 60%;
+}
+
+/* Swiper custom styles */
+.swiper-pagination-bullet {
+  @apply bg-[var(--accent-color)] opacity-60;
+}
+
+.swiper-pagination-bullet-active {
+  @apply bg-[var(--accent-color)] opacity-100;
+}
+
+.lang-selector {
+  @apply relative cursor-pointer;
+}
+
+/* Hero section styles */
+.hero-content {
+  @apply container mx-auto px-4 flex flex-col md:flex-row items-center justify-between;
+}
+
+.hero-text {
+  @apply md:w-1/2 text-left;
+}
+
+.hero-image {
+  @apply md:w-1/2;
+}
