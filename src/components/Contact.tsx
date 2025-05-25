@@ -26,10 +26,8 @@ const Contact: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real application, you would send the form data to a server
     console.log('Form submitted:', formState);
     setIsSubmitted(true);
-    // Reset form after 3 seconds
     setTimeout(() => {
       setFormState({
         name: '',
@@ -50,7 +48,9 @@ const Contact: React.FC = () => {
     {
       icon: <Phone className="text-[var(--primary-color)]" />,
       title: t('contact.phone'),
-      value: t('contact.phoneValue')
+      value: t('contact.phoneValue').split('\n').map((line, i) => (
+        <div key={i}>{line}</div>
+      ))
     },
     {
       icon: <Mail className="text-[var(--primary-color)]" />,
@@ -92,7 +92,7 @@ const Contact: React.FC = () => {
                   </div>
                   <div>
                     <h3 className="font-medium text-lg">{info.title}</h3>
-                    <p className="text-[var(--text-muted)]">{info.value}</p>
+                    <div className="text-[var(--text-muted)]">{info.value}</div>
                   </div>
                 </div>
               ))}
