@@ -103,13 +103,12 @@ body {
 }
 
 .section-title {
-  @apply text-3xl md:text-4xl font-bold mb-8 relative inline-block pb-4;
+  @apply text-3xl md:text-4xl font-bold mb-8 relative inline-block pb-4 text-center;
 }
 
 .section-title::after {
   content: "";
-  @apply absolute bottom-0 left-0 h-1 bg-gradient-to-r from-[var(--primary-color)] to-[var(--accent-color)] rounded-full;
-  width: 60%;
+  @apply absolute bottom-0 left-1/4 right-1/4 h-1 bg-gradient-to-r from-[var(--primary-color)] to-[var(--accent-color)] rounded-full;
 }
 
 /* Logo title with gradient line */
