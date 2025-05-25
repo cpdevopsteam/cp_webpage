@@ -26,6 +26,8 @@ body {
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
+  opacity: 0;
+  transition: opacity 0.3s;
 }
 
 ::-webkit-scrollbar-track {
@@ -35,6 +37,11 @@ body {
 ::-webkit-scrollbar-thumb {
   background: var(--primary-color);
   border-radius: 4px;
+  opacity: 0;
+}
+
+body:hover::-webkit-scrollbar-thumb {
+  opacity: 1;
 }
 
 /* Navigation animations */
