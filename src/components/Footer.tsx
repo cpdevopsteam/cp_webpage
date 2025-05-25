@@ -1,6 +1,5 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
 
 const Footer: React.FC = () => {
   const { t } = useTranslation();
@@ -54,29 +53,12 @@ const Footer: React.FC = () => {
               <li><a href="#" className="nav-link">{t('footer.terms')}</a></li>
               <li><a href="#" className="nav-link">ÁSZF</a></li>
             </ul>
-            <div className="mt-6">
-              <h4 className="text-lg font-medium mb-4">Social Media</h4>
-              <div className="flex space-x-4">
-                <a href="#" className="w-10 h-10 rounded-full bg-[var(--card-bg)] flex items-center justify-center text-[var(--accent-color)] hover:bg-[var(--accent-color)] hover:text-white transition-colors">
-                  <Facebook size={20} />
-                </a>
-                <a href="#" className="w-10 h-10 rounded-full bg-[var(--card-bg)] flex items-center justify-center text-[var(--accent-color)] hover:bg-[var(--accent-color)] hover:text-white transition-colors">
-                  <Twitter size={20} />
-                </a>
-                <a href="#" className="w-10 h-10 rounded-full bg-[var(--card-bg)] flex items-center justify-center text-[var(--accent-color)] hover:bg-[var(--accent-color)] hover:text-white transition-colors">
-                  <Linkedin size={20} />
-                </a>
-                <a href="#" className="w-10 h-10 rounded-full bg-[var(--card-bg)] flex items-center justify-center text-[var(--accent-color)] hover:bg-[var(--accent-color)] hover:text-white transition-colors">
-                  <Instagram size={20} />
-                </a>
-              </div>
-            </div>
           </div>
         </div>
         
-        <div className="pt-8 mt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-[var(--text-muted)] text-sm">
-            &copy; {currentYear} Control Pass Kft. {t('footer.rights')}
+        <div className="pt-8 mt-8 border-t border-gray-800">
+          <p className="text-[var(--text-muted)] text-sm text-center">
+            © {currentYear} Control Pass Kft. {t('footer.rights')}
           </p>
         </div>
       </div>
