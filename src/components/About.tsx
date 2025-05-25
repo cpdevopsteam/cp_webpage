@@ -11,31 +11,13 @@ const About: React.FC = () => {
     threshold: 0.1
   });
 
-  const [scrollRef, setY] = React.useState(0);
-
-  React.useEffect(() => {
-    const handleScroll = () => {
-      const element = document.getElementById('about');
-      if (element) {
-        const rect = element.getBoundingClientRect();
-        const scrolled = window.scrollY;
-        const relativeY = (rect.top - window.innerHeight) / 2;
-        setY(relativeY);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   return (
     <section id="about" className="relative py-20 overflow-hidden">
       <div 
-        className="absolute inset-0 bg-cover bg-center opacity-20 blur-sm"
+        className="absolute inset-0 bg-cover bg-center bg-fixed opacity-20 blur-sm"
         style={{ 
           backgroundImage: 'url(https://images.pexels.com/photos/3183183/pexels-photo-3183183.jpeg?auto=compress&cs=tinysrgb&w=1920)',
-          transform: `scale(1.1) translateY(${scrollRef * 0.2}px)`,
-          transition: 'transform 0.1s cubic-bezier(0.33, 1, 0.68, 1)'
+          transform: 'scale(1.1)'
         }}
       />
       <div className="container mx-auto px-4 relative z-10">
