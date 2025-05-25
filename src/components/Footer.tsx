@@ -11,13 +11,7 @@ const Footer: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div>
-            <div className="flex items-center gap-3 mb-6">
-              <img src="/logo.svg" alt="Control Pass Logo" className="w-10 h-10" />
-              <div className="flex items-baseline gap-2">
-                <h3 className="text-2xl font-audiowide text-white">Control Pass</h3>
-                <span className="text-[var(--primary-color)]">Kft.</span>
-              </div>
-            </div>
+            <h3 className="text-2xl font-audiowide text-white mb-6">Control Pass <span className="text-[var(--primary-color)]">Kft.</span></h3>
             <p className="text-[var(--text-muted)]">
               {t('about.description').substring(0, 120)}...
             </p>
