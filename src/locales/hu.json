@@ -146,6 +146,9 @@
       }
     ]
   },
+  "partners": {
+    "title": "Partnereink"
+  },
   "team": {
     "title": "Csapatunk",
     "description": "Szakértő csapatunk elkötelezett a magas színvonalú munkavégzés mellett.",

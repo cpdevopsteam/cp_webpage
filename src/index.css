@@ -153,3 +153,9 @@ body {
   transform: translateZ(0);
   will-change: transform;
 }
+
+/* Partners section styles */
+.partner-card {
+  @apply bg-[var(--card-bg)] rounded-lg p-4 flex items-center justify-center transition-all duration-300 hover:shadow-lg;
+  height: 150px;
+}

@@ -3,6 +3,7 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import Services from './components/Services';
 import Projects from './components/Projects';
+import Partners from './components/Partners';
 import Team from './components/Team';
 import About from './components/About';
 import Contact from './components/Contact';
@@ -28,11 +29,10 @@ function App() {
         <About />
         <Team />
         <Projects />
+        <Partners />
         <Contact />
       </main>
       <Footer />
     </div>
   );
 }
-
-export default App;

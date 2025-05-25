@@ -146,6 +146,9 @@
       }
     ]
   },
+  "partners": {
+    "title": "Our Partners"
+  },
   "team": {
     "title": "Our Team",
     "description": "Our expert team is committed to delivering high-quality work.",
