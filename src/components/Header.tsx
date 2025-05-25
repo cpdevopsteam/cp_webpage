@@ -44,7 +44,7 @@ const Header: React.FC = () => {
           <div className="flex items-center">
             <a href="#" className="flex items-center gap-3">
               <img src="/logo.svg" alt="Control Pass Logo" className="w-10 h-10" />
-              <span className="text-2xl md:text-3xl font-audiowide text-white">
+              <span className="text-2xl md:text-3xl font-audiowide text-white logo-title">
                 Control Pass
               </span>
             </a>

@@ -112,6 +112,16 @@ body {
   width: 60%;
 }
 
+/* Logo title with gradient line */
+.logo-title {
+  @apply relative pb-2;
+}
+
+.logo-title::after {
+  content: "";
+  @apply absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[var(--primary-color)] to-[var(--accent-color)] rounded-full;
+}
+
 /* Swiper custom styles */
 .swiper-pagination-bullet {
   @apply bg-[var(--accent-color)] opacity-60;
