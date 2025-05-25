@@ -12,8 +12,15 @@ const About: React.FC = () => {
   });
 
   return (
-    <section id="about" className="py-20 bg-[#0a0a0a]">
-      <div className="container mx-auto px-4">
+    <section id="about" className="relative py-20 overflow-hidden">
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-fixed opacity-20 blur-sm"
+        style={{ 
+          backgroundImage: 'url(https://images.pexels.com/photos/3183183/pexels-photo-3183183.jpeg?auto=compress&cs=tinysrgb&w=1920)',
+          transform: 'scale(1.1)'
+        }}
+      />
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
           <motion.h2 
             initial={{ opacity: 0, y: -20 }}
