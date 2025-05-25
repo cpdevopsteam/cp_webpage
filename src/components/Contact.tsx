@@ -17,55 +17,80 @@ const Contact: React.FC = () => {
     subject: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormState(prev => ({ ...prev, [name]: value }));
+    setError(null);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const validateForm = () => {
+    if (!formState.name.trim()) return 'Name is required';
+    if (!formState.email.trim()) return 'Email is required';
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formState.email)) return 'Invalid email format';
+    if (!formState.subject.trim()) return 'Subject is required';
+    if (!formState.message.trim()) return 'Message is required';
+    return null;
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formState);
-    setIsSubmitted(true);
-    setTimeout(() => {
+    const validationError = validateForm();
+    if (validationError) {
+      setError(validationError);
+      return;
+    }
+
+    setIsSubmitting(true);
+    setError(null);
+
+    try {
+      // Simulate API call
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      setIsSubmitted(true);
       setFormState({
         name: '',
         email: '',
         subject: '',
         message: ''
       });
-      setIsSubmitted(false);
-    }, 3000);
+    } catch (err) {
+      setError('Failed to send message. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
     {
-      icon: <MapPin className="text-[var(--primary-color)]" />,
+      icon: <MapPin className="text-[var(--primary-color)]" aria-hidden="true" />,
       title: t('contact.address'),
       value: t('contact.addressValue')
     },
     {
-      icon: <Phone className="text-[var(--primary-color)]" />,
+      icon: <Phone className="text-[var(--primary-color)]" aria-hidden="true" />,
       title: t('contact.phone'),
       value: t('contact.phoneValue').split('\n').map((line, i) => (
         <div key={i}>{line}</div>
       ))
     },
     {
-      icon: <Mail className="text-[var(--primary-color)]" />,
+      icon: <Mail className="text-[var(--primary-color)]" aria-hidden="true" />,
       title: t('contact.email'),
       value: t('contact.emailValue')
     },
     {
-      icon: <Clock className="text-[var(--primary-color)]" />,
+      icon: <Clock className="text-[var(--primary-color)]" aria-hidden="true" />,
       title: t('contact.hours'),
       value: t('contact.hoursValue')
     }
   ];
 
   return (
-    <section id="contact" className="py-20 bg-[var(--dark-bg)]">
+    <section id="contact" className="py-20 bg-[var(--dark-bg)]" aria-label="Contact section">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <motion.h2 
@@ -101,6 +126,7 @@ const Contact: React.FC = () => {
             <div className="mt-12">
               <div className="w-full h-64 rounded-lg overflow-hidden">
                 <iframe
+                  title="Office Location"
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2754.900603038391!2d18.24183847692349!3d46.07655509797576!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4742b19b933a7c2d%3A0xb3b8a26f5a2c5e9a!2zUMOpY3MsIFZhZMOhc3ogdS4gODMsIDc2Mjc!5e1!3m2!1shu!2shu!4v1710835847099!5m2!1shu!2shu"
                   width="100%"
                   height="100%"
@@ -122,15 +148,20 @@ const Contact: React.FC = () => {
             {isSubmitted ? (
               <div className="text-center py-12">
                 <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-500/20 mb-4">
-                  <Send className="text-green-500" size={24} />
+                  <Send className="text-green-500" size={24} aria-hidden="true" />
                 </div>
                 <h3 className="text-2xl font-semibold mb-2">{t('contact.formSuccess')}</h3>
               </div>
             ) : (
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={handleSubmit} noValidate>
+                {error && (
+                  <div className="mb-4 p-3 bg-red-500/10 border border-red-500/50 rounded-md text-red-500">
+                    {error}
+                  </div>
+                )}
                 <div className="mb-6">
                   <label htmlFor="name" className="block mb-2 text-sm font-medium">
-                    {t('contact.formName')}
+                    {t('contact.formName')} *
                   </label>
                   <input
                     type="text"
@@ -140,11 +171,12 @@ const Contact: React.FC = () => {
                     onChange={handleChange}
                     className="w-full p-3 bg-[#1a1a1a] border border-gray-700 rounded-md text-white focus:ring-[var(--primary-color)] focus:border-[var(--primary-color)] focus:outline-none"
                     required
+                    aria-required="true"
                   />
                 </div>
                 <div className="mb-6">
                   <label htmlFor="email" className="block mb-2 text-sm font-medium">
-                    {t('contact.formEmail')}
+                    {t('contact.formEmail')} *
                   </label>
                   <input
                     type="email"
@@ -154,11 +186,12 @@ const Contact: React.FC = () => {
                     onChange={handleChange}
                     className="w-full p-3 bg-[#1a1a1a] border border-gray-700 rounded-md text-white focus:ring-[var(--primary-color)] focus:border-[var(--primary-color)] focus:outline-none"
                     required
+                    aria-required="true"
                   />
                 </div>
                 <div className="mb-6">
                   <label htmlFor="subject" className="block mb-2 text-sm font-medium">
-                    {t('contact.formSubject')}
+                    {t('contact.formSubject')} *
                   </label>
                   <input
                     type="text"
@@ -168,11 +201,12 @@ const Contact: React.FC = () => {
                     onChange={handleChange}
                     className="w-full p-3 bg-[#1a1a1a] border border-gray-700 rounded-md text-white focus:ring-[var(--primary-color)] focus:border-[var(--primary-color)] focus:outline-none"
                     required
+                    aria-required="true"
                   />
                 </div>
                 <div className="mb-6">
                   <label htmlFor="message" className="block mb-2 text-sm font-medium">
-                    {t('contact.formMessage')}
+                    {t('contact.formMessage')} *
                   </label>
                   <textarea
                     id="message"
@@ -182,14 +216,22 @@ const Contact: React.FC = () => {
                     rows={5}
                     className="w-full p-3 bg-[#1a1a1a] border border-gray-700 rounded-md text-white focus:ring-[var(--primary-color)] focus:border-[var(--primary-color)] focus:outline-none"
                     required
+                    aria-required="true"
                   ></textarea>
                 </div>
                 <button
                   type="submit"
                   className="w-full btn btn-primary flex items-center justify-center gap-2"
+                  disabled={isSubmitting}
                 >
-                  <Send size={16} />
-                  {t('contact.formSubmit')}
+                  {isSubmitting ? (
+                    <div className="animate-spin rounded-full h-5 w-5 border-2 border-white border-t-transparent"></div>
+                  ) : (
+                    <>
+                      <Send size={16} aria-hidden="true" />
+                      {t('contact.formSubmit')}
+                    </>
+                  )}
                 </button>
               </form>
             )}

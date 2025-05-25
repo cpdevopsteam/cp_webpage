@@ -43,7 +43,7 @@ const Partners: React.FC = () => {
   ];
 
   return (
-    <section id="partners" className="py-20 bg-[var(--dark-bg)]">
+    <section id="partners" className="py-20 bg-[var(--dark-bg)]" aria-label="Partners section">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <motion.h2 
@@ -67,10 +67,14 @@ const Partners: React.FC = () => {
               disableOnInteraction: false,
               pauseOnMouseEnter: true
             }}
-            navigation={true}
+            navigation={{
+              prevEl: '.swiper-button-prev',
+              nextEl: '.swiper-button-next',
+            }}
             pagination={{
               clickable: true,
-              dynamicBullets: true
+              dynamicBullets: true,
+              el: '.swiper-pagination',
             }}
             breakpoints={{
               640: {
@@ -95,13 +99,17 @@ const Partners: React.FC = () => {
                 >
                   <img
                     src={partner.logo}
-                    alt={partner.name}
+                    alt={`${partner.name} logo`}
                     className="w-full h-32 object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                    loading="lazy"
                   />
                 </motion.div>
               </SwiperSlide>
             ))}
           </Swiper>
+          <div className="swiper-button-prev" aria-label="Previous slide" />
+          <div className="swiper-button-next" aria-label="Next slide" />
+          <div className="swiper-pagination" />
         </div>
       </div>
     </section>
