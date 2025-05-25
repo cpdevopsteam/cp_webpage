@@ -48,8 +48,19 @@ const Contact: React.FC = () => {
     setError(null);
 
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/contact`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`
+        },
+        body: JSON.stringify(formState)
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to send message');
+      }
+
       setIsSubmitted(true);
       setFormState({
         name: '',
