@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, EffectFade } from 'swiper/modules';
@@ -11,6 +11,7 @@ import 'swiper/css/effect-fade';
 
 const Hero: React.FC = () => {
   const { t } = useTranslation();
+  const [scrollY, setScrollY] = useState(0);
   
   const slides = [
     {
@@ -45,6 +46,15 @@ const Hero: React.FC = () => {
     }
   ];
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <section id="hero" className="relative h-screen overflow-hidden">
       <Swiper
@@ -64,8 +74,11 @@ const Hero: React.FC = () => {
           <SwiperSlide key={slide.id}>
             <div className="relative h-full">
               <div 
-                className="absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: `url(${slide.image})` }}
+                className="parallax-bg"
+                style={{ 
+                  backgroundImage: `url(${slide.image})`,
+                  transform: `translateY(${scrollY * 0.5}px)`
+                }}
               />
               <div className="absolute inset-0 bg-gradient-to-r from-black to-transparent bg-opacity-70" />
               <div className="absolute inset-0 flex items-center">

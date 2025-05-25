@@ -147,3 +147,10 @@ body {
 .hero-image {
   @apply md:w-1/2;
 }
+
+/* Parallax background */
+.parallax-bg {
+  @apply fixed top-0 left-0 w-full h-full bg-cover bg-center -z-10;
+  transform: translateZ(0);
+  will-change: transform;
+}
