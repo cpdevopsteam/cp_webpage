@@ -103,7 +103,7 @@ body {
 }
 
 .section-title {
-  @apply text-3xl md:text-4xl font-bold mb-8 relative inline-block;
+  @apply text-3xl md:text-4xl font-bold mb-8 relative inline-block pb-4;
 }
 
 .section-title::after {
