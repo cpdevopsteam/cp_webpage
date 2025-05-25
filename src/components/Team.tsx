@@ -11,12 +11,11 @@ const Team: React.FC = () => {
     threshold: 0.1
   });
 
-  const teamMembersData = t('team.members', { returnObjects: true });
-  const teamMembers = Array.isArray(teamMembersData) ? teamMembersData as {
+  const teamMembers = t('team.members', { returnObjects: true }) as {
     name: string;
     role: string;
     quote: string;
-  }[] : [];
+  }[];
 
   // Stock photos for team members
   const teamPhotos = [

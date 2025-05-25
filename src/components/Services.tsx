@@ -12,65 +12,60 @@ const Services: React.FC = () => {
     threshold: 0.1
   });
 
-  const getTranslatedItems = (key: string): string[] => {
-    const items = t(`services.${key}.items`, { returnObjects: true });
-    return Array.isArray(items) ? items : [];
-  };
-
   const serviceCategories = [
     {
       id: 'planning',
       icon: <LayoutPlanIcon className="w-10 h-10 text-[var(--primary-color)]" />,
       title: t('services.planning.title'),
-      items: getTranslatedItems('planning')
+      items: t('services.planning.items', { returnObjects: true }) as string[]
     },
     {
       id: 'implementation',
       icon: <Hammer className="w-10 h-10 text-[var(--primary-color)]" />,
       title: t('services.implementation.title'),
-      items: getTranslatedItems('implementation')
+      items: t('services.implementation.items', { returnObjects: true }) as string[]
     },
     {
       id: 'electrical',
       icon: <Zap className="w-10 h-10 text-[var(--primary-color)]" />,
       title: t('services.electrical.title'),
-      items: getTranslatedItems('electrical')
+      items: t('services.electrical.items', { returnObjects: true }) as string[]
     },
     {
       id: 'security',
       icon: <Shield className="w-10 h-10 text-[var(--primary-color)]" />,
       title: t('services.security.title'),
-      items: getTranslatedItems('security')
+      items: t('services.security.items', { returnObjects: true }) as string[]
     },
     {
       id: 'it',
       icon: <ServerIcon className="w-10 h-10 text-[var(--primary-color)]" />,
       title: t('services.it.title'),
-      items: getTranslatedItems('it')
+      items: t('services.it.items', { returnObjects: true }) as string[]
     },
     {
       id: 'commissioning',
       icon: <Terminal className="w-10 h-10 text-[var(--primary-color)]" />,
       title: t('services.commissioning.title'),
-      items: getTranslatedItems('commissioning')
+      items: t('services.commissioning.items', { returnObjects: true }) as string[]
     },
     {
       id: 'operations',
       icon: <Building2 className="w-10 h-10 text-[var(--primary-color)]" />,
       title: t('services.operations.title'),
-      items: getTranslatedItems('operations')
+      items: t('services.operations.items', { returnObjects: true }) as string[]
     },
     {
       id: 'monitoring',
       icon: <ActivityIcon className="w-10 h-10 text-[var(--primary-color)]" />,
       title: t('services.monitoring.title'),
-      items: getTranslatedItems('monitoring')
+      items: t('services.monitoring.items', { returnObjects: true }) as string[]
     },
     {
       id: 'dataAnalysis',
       icon: <LineChart className="w-10 h-10 text-[var(--primary-color)]" />,
       title: t('services.dataAnalysis.title'),
-      items: getTranslatedItems('dataAnalysis')
+      items: t('services.dataAnalysis.items', { returnObjects: true }) as string[]
     }
   ];
 

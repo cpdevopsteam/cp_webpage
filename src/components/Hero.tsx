@@ -71,6 +71,14 @@ const Hero: React.FC = () => {
               <div className="absolute inset-0 flex items-center">
                 <div className="hero-content">
                   <div className="hero-text">
+                    <motion.h1
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.8 }}
+                      className="text-4xl md:text-5xl lg:text-6xl font-audiowide mb-4 text-white uppercase"
+                    >
+                      CONTROL PASS
+                    </motion.h1>
                     <motion.h2
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
