@@ -18,6 +18,22 @@ function App() {
     document.title = i18n.language === 'hu' 
       ? 'Control Pass Kft. | Ipari elektromos és biztonságtechnikai rendszerek' 
       : 'Control Pass Kft. | Industrial Electrical and Security Systems';
+
+    // Add scroll event listener to toggle scrollbar visibility
+    let scrollTimeout: number;
+    const handleScroll = () => {
+      document.body.classList.add('scrolling');
+      clearTimeout(scrollTimeout);
+      scrollTimeout = window.setTimeout(() => {
+        document.body.classList.remove('scrolling');
+      }, 1000);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      clearTimeout(scrollTimeout);
+    };
   }, [i18n.language]);
 
   return (
@@ -37,4 +53,4 @@ function App() {
   );
 }
 
-export default App
+export default App;

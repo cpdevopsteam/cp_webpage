@@ -17,31 +17,37 @@
 body {
   font-family: 'Inter', sans-serif;
   @apply bg-[var(--dark-bg)] text-[var(--text-light)];
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
 }
 
 .font-audiowide {
   font-family: 'Audiowide', sans-serif;
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-  opacity: 0;
-  transition: opacity 0.3s;
+/* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar {
+  display: none;
 }
 
-::-webkit-scrollbar-track {
+/* Only show scrollbar when scrolling */
+body.scrolling {
+  scrollbar-width: thin;
+  -ms-overflow-style: auto;
+}
+
+body.scrolling::-webkit-scrollbar {
+  display: block;
+  width: 8px;
+}
+
+body.scrolling::-webkit-scrollbar-track {
   background: var(--dark-bg);
 }
 
-::-webkit-scrollbar-thumb {
+body.scrolling::-webkit-scrollbar-thumb {
   background: var(--primary-color);
   border-radius: 4px;
-  opacity: 0;
-}
-
-body:hover::-webkit-scrollbar-thumb {
-  opacity: 1;
 }
 
 /* Navigation animations */
