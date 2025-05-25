@@ -11,10 +11,9 @@ const Projects: React.FC = () => {
     threshold: 0.1
   });
 
-  const projects = t('projects.items', { returnObjects: true }) as {
-    title: string;
-    description: string;
-  }[];
+  const projects = Array.isArray(t('projects.items', { returnObjects: true })) 
+    ? t('projects.items', { returnObjects: true }) 
+    : [] as { title: string; description: string; }[];
 
   const projectImages = [
     'https://images.pexels.com/photos/9875441/pexels-photo-9875441.jpeg?auto=compress&cs=tinysrgb&w=600',
