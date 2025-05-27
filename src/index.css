@@ -199,3 +199,8 @@ body.scrolling::-webkit-scrollbar-thumb {
 .partners-container .swiper-pagination-bullet {
   @apply bg-[var(--primary-color)];
 }
+
+/* Add scroll margin for sections */
+section {
+  scroll-margin-top: 100px;
+}
