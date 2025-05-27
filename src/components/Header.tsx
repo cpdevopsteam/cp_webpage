@@ -42,28 +42,29 @@ const Header: React.FC = () => {
     >
       <div className="container mx-auto px-4 py-3">
         <div className="flex justify-between items-center">
-          <div className="flex items-center">
+          {/* Logo and Company Name */}
+          <div className="flex-shrink-0 mr-8">
             <a href="#" className="flex items-center gap-3">
               <img src={logo} alt="Control Pass Logo" className="w-16 h-16" />
-              <span className="text-2xl md:text-3xl font-audiowide text-white logo-title">
+              <span className="text-2xl md:text-3xl font-audiowide text-white whitespace-nowrap logo-title">
                 Control Pass
               </span>
             </a>
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8">
+          <nav className="hidden lg:flex items-center space-x-8 flex-grow justify-end">
             {menuItems.map((item) => (
               <a
                 key={item.id}
                 href={item.href}
-                className="nav-link"
+                className="nav-link whitespace-nowrap"
               >
                 {item.label}
               </a>
             ))}
             <LanguageSwitcher />
-            <a href="http://10.1.1.196/login" rel="noopener noreferrer" className="btn-login">
+            <a href="http://10.1.1.196/login" rel="noopener noreferrer" className="btn-login whitespace-nowrap">
               <LogIn size={16} />
               {t('navigation.login')}
             </a>
