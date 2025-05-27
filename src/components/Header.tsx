@@ -44,7 +44,7 @@ const Header: React.FC = () => {
         <div className="flex justify-between items-center">
           <div className="flex items-center">
             <a href="#" className="flex items-center gap-3">
-              <img src={logo} alt="Control Pass Logo" className="w-10 h-10" />
+              <img src={logo} alt="Control Pass Logo" className="w-16 h-16" />
               <span className="text-2xl md:text-3xl font-audiowide text-white logo-title">
                 Control Pass
               </span>
