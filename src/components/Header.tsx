@@ -62,10 +62,10 @@ const Header: React.FC = () => {
               </a>
             ))}
             <LanguageSwitcher />
-            <button className="btn-login">
+            <a href="http://10.1.1.196/login" rel="noopener noreferrer" className="btn-login">
               <LogIn size={16} />
               {t('navigation.login')}
-            </button>
+            </a>
           </nav>
 
           {/* Mobile Navigation Toggle */}
