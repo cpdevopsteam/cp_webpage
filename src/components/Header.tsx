@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Menu, X, ChevronDown, LogIn } from 'lucide-react';
 import LanguageSwitcher from './LanguageSwitcher';
 import { motion, AnimatePresence } from 'framer-motion';
+import logo from '../assets/logo-transparent.png';
 
 const Header: React.FC = () => {
   const { t } = useTranslation();
@@ -43,7 +44,7 @@ const Header: React.FC = () => {
         <div className="flex justify-between items-center">
           <div className="flex items-center">
             <a href="#" className="flex items-center gap-3">
-              <img src="/logo.svg" alt="Control Pass Logo" className="w-10 h-10" />
+              <img src={logo} alt="Control Pass Logo" className="w-10 h-10" />
               <span className="text-2xl md:text-3xl font-audiowide text-white logo-title">
                 Control Pass
               </span>
@@ -116,4 +117,4 @@ const Header: React.FC = () => {
   );
 };
 
-export default Header
+export default Header;
