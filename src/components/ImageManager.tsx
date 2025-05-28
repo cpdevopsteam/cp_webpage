@@ -20,11 +20,104 @@ const ImageManager: React.FC = () => {
       currentImage: 'https://images.pexels.com/photos/9875441/pexels-photo-9875441.jpeg'
     },
     {
+      id: 'hero3',
+      name: 'Hero Slide 3',
+      currentImage: 'https://images.pexels.com/photos/3945683/pexels-photo-3945683.jpeg'
+    },
+    {
+      id: 'hero4',
+      name: 'Hero Slide 4',
+      currentImage: 'https://images.pexels.com/photos/6968434/pexels-photo-6968434.jpeg'
+    },
+    {
+      id: 'hero5',
+      name: 'Hero Slide 5',
+      currentImage: 'https://images.pexels.com/photos/8294618/pexels-photo-8294618.jpeg'
+    },
+    {
       id: 'about',
-      name: 'About Section',
+      name: 'About Section Background',
+      currentImage: 'https://images.pexels.com/photos/3183183/pexels-photo-3183183.jpeg'
+    },
+    {
+      id: 'aboutTeam',
+      name: 'About Team Image',
       currentImage: 'https://images.pexels.com/photos/4194850/pexels-photo-4194850.jpeg'
+    },
+    {
+      id: 'projectsBg',
+      name: 'Projects Background',
+      currentImage: 'https://images.pexels.com/photos/356036/pexels-photo-356036.jpeg'
+    },
+    {
+      id: 'partner1',
+      name: 'Partner 1',
+      currentImage: 'https://images.pexels.com/photos/2977547/pexels-photo-2977547.jpeg'
+    },
+    {
+      id: 'partner2',
+      name: 'Partner 2',
+      currentImage: 'https://images.pexels.com/photos/2977565/pexels-photo-2977565.jpeg'
+    },
+    {
+      id: 'partner3',
+      name: 'Partner 3',
+      currentImage: 'https://images.pexels.com/photos/2977549/pexels-photo-2977549.jpeg'
+    },
+    {
+      id: 'partner4',
+      name: 'Partner 4',
+      currentImage: 'https://images.pexels.com/photos/2977551/pexels-photo-2977551.jpeg'
+    },
+    {
+      id: 'partner5',
+      name: 'Partner 5',
+      currentImage: 'https://images.pexels.com/photos/2977553/pexels-photo-2977553.jpeg'
+    },
+    {
+      id: 'partner6',
+      name: 'Partner 6',
+      currentImage: 'https://images.pexels.com/photos/2977555/pexels-photo-2977555.jpeg'
+    },
+    {
+      id: 'team1',
+      name: 'Team Member 1',
+      currentImage: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg'
+    },
+    {
+      id: 'team2',
+      name: 'Team Member 2',
+      currentImage: 'https://images.pexels.com/photos/1516680/pexels-photo-1516680.jpeg'
+    },
+    {
+      id: 'team3',
+      name: 'Team Member 3',
+      currentImage: 'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg'
+    },
+    {
+      id: 'team4',
+      name: 'Team Member 4',
+      currentImage: 'https://images.pexels.com/photos/3785104/pexels-photo-3785104.jpeg'
     }
   ]);
+
+  const [filter, setFilter] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('all');
+
+  const categories = [
+    { id: 'all', name: 'All Images' },
+    { id: 'hero', name: 'Hero Slides' },
+    { id: 'about', name: 'About Section' },
+    { id: 'partners', name: 'Partners' },
+    { id: 'team', name: 'Team Members' },
+    { id: 'projects', name: 'Projects' }
+  ];
+
+  const filteredSections = sections.filter(section => {
+    const matchesSearch = section.name.toLowerCase().includes(filter.toLowerCase());
+    const matchesCategory = selectedCategory === 'all' || section.id.startsWith(selectedCategory);
+    return matchesSearch && matchesCategory;
+  });
 
   const handleImageUpload = (sectionId: string, file: File) => {
     // Here you would implement the actual image upload logic
@@ -43,8 +136,35 @@ const ImageManager: React.FC = () => {
         <p className="text-gray-400 mt-1">Manage images across different sections of the website</p>
       </div>
 
+      <div className="flex flex-col md:flex-row gap-4 items-start md:items-center justify-between">
+        <div className="flex-1 w-full md:w-auto">
+          <input
+            type="text"
+            placeholder="Search images..."
+            value={filter}
+            onChange={(e) => setFilter(e.target.value)}
+            className="w-full px-4 py-2 bg-[#1a1a1a] border border-gray-700 rounded-md text-white focus:outline-none focus:ring-[var(--primary-color)] focus:border-[var(--primary-color)]"
+          />
+        </div>
+        <div className="flex gap-2 overflow-x-auto pb-2 md:pb-0 w-full md:w-auto">
+          {categories.map(category => (
+            <button
+              key={category.id}
+              onClick={() => setSelectedCategory(category.id)}
+              className={`px-4 py-2 rounded-md text-sm whitespace-nowrap ${
+                selectedCategory === category.id
+                  ? 'bg-[var(--primary-color)] text-white'
+                  : 'bg-[#1a1a1a] text-gray-400 hover:text-white'
+              }`}
+            >
+              {category.name}
+            </button>
+          ))}
+        </div>
+      </div>
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {sections.map((section) => (
+        {filteredSections.map((section) => (
           <div
             key={section.id}
             className="bg-[#1a1a1a] rounded-lg overflow-hidden border border-gray-800"
