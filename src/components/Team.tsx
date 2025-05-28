@@ -17,14 +17,6 @@ const Team: React.FC = () => {
     quote: string;
   }[];
 
-  // Stock photos for team members
-  const teamPhotos = [
-    'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400',
-    'https://images.pexels.com/photos/1516680/pexels-photo-1516680.jpeg?auto=compress&cs=tinysrgb&w=400',
-    'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=400',
-    'https://images.pexels.com/photos/3785104/pexels-photo-3785104.jpeg?auto=compress&cs=tinysrgb&w=400'
-  ];
-
   const container = {
     hidden: { opacity: 0 },
     show: {
@@ -77,7 +69,7 @@ const Team: React.FC = () => {
             >
               <div className="mb-4 h-64 overflow-hidden rounded-lg">
                 <img 
-                  src={teamPhotos[index % teamPhotos.length]} 
+                  src={`/pictures/team${index + 1}.jpg`}
                   alt={member.name}
                   className="w-full h-full object-cover"
                 />

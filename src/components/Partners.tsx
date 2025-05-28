@@ -18,27 +18,27 @@ const Partners: React.FC = () => {
   const partners = [
     {
       name: "Partner 1",
-      logo: "https://images.pexels.com/photos/2977547/pexels-photo-2977547.jpeg?auto=compress&cs=tinysrgb&w=300"
+      logo: "/pictures/partner1.jpg"
     },
     {
       name: "Partner 2",
-      logo: "https://images.pexels.com/photos/2977565/pexels-photo-2977565.jpeg?auto=compress&cs=tinysrgb&w=300"
+      logo: "/pictures/partner2.jpg"
     },
     {
       name: "Partner 3",
-      logo: "https://images.pexels.com/photos/2977549/pexels-photo-2977549.jpeg?auto=compress&cs=tinysrgb&w=300"
+      logo: "/pictures/partner3.jpg"
     },
     {
       name: "Partner 4",
-      logo: "https://images.pexels.com/photos/2977551/pexels-photo-2977551.jpeg?auto=compress&cs=tinysrgb&w=300"
+      logo: "/pictures/partner4.jpg"
     },
     {
       name: "Partner 5",
-      logo: "https://images.pexels.com/photos/2977553/pexels-photo-2977553.jpeg?auto=compress&cs=tinysrgb&w=300"
+      logo: "/pictures/partner5.jpg"
     },
     {
       name: "Partner 6",
-      logo: "https://images.pexels.com/photos/2977555/pexels-photo-2977555.jpeg?auto=compress&cs=tinysrgb&w=300"
+      logo: "/pictures/partner6.jpg"
     }
   ];
 
