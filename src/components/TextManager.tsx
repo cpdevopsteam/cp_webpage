@@ -20,6 +20,7 @@ const TextManager: React.FC = () => {
   const [isDirty, setIsDirty] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [teamMemberCount, setTeamMemberCount] = useState(4);
+  const [projectCount, setProjectCount] = useState(6);
   const [serviceItems, setServiceItems] = useState<Record<string, string[]>>({
     'services.planning.items': t('services.planning.items', { returnObjects: true }) as string[],
     'services.implementation.items': t('services.implementation.items', { returnObjects: true }) as string[],
@@ -39,6 +40,17 @@ const TextManager: React.FC = () => {
         { key: `team.members.${i}.name`, label: `Member ${i + 1} Name`, type: 'text' as const },
         { key: `team.members.${i}.role`, label: `Member ${i + 1} Role`, type: 'text' as const },
         { key: `team.members.${i}.quote`, label: `Member ${i + 1} Quote`, type: 'textarea' as const }
+      );
+    }
+    return fields;
+  };
+
+  const generateProjectFields = (count: number) => {
+    const fields = [];
+    for (let i = 0; i < count; i++) {
+      fields.push(
+        { key: `projects.items.${i}.title`, label: `Project ${i + 1} Title`, type: 'text' as const },
+        { key: `projects.items.${i}.description`, label: `Project ${i + 1} Description`, type: 'textarea' as const }
       );
     }
     return fields;
@@ -112,21 +124,11 @@ const TextManager: React.FC = () => {
     {
       id: 'projects',
       name: 'Projects Section',
+      isDynamic: true,
       fields: [
         { key: 'projects.title', label: 'Section Title', type: 'text' },
         { key: 'projects.viewProject', label: 'View Project Button', type: 'text' },
-        { key: 'projects.items.0.title', label: 'Project 1 Title', type: 'text' },
-        { key: 'projects.items.0.description', label: 'Project 1 Description', type: 'textarea' },
-        { key: 'projects.items.1.title', label: 'Project 2 Title', type: 'text' },
-        { key: 'projects.items.1.description', label: 'Project 2 Description', type: 'textarea' },
-        { key: 'projects.items.2.title', label: 'Project 3 Title', type: 'text' },
-        { key: 'projects.items.2.description', label: 'Project 3 Description', type: 'textarea' },
-        { key: 'projects.items.3.title', label: 'Project 4 Title', type: 'text' },
-        { key: 'projects.items.3.description', label: 'Project 4 Description', type: 'textarea' },
-        { key: 'projects.items.4.title', label: 'Project 5 Title', type: 'text' },
-        { key: 'projects.items.4.description', label: 'Project 5 Description', type: 'textarea' },
-        { key: 'projects.items.5.title', label: 'Project 6 Title', type: 'text' },
-        { key: 'projects.items.5.description', label: 'Project 6 Description', type: 'textarea' }
+        ...generateProjectFields(projectCount)
       ]
     },
     {
@@ -188,6 +190,18 @@ const TextManager: React.FC = () => {
   const removeTeamMember = () => {
     if (teamMemberCount > 1) {
       setTeamMemberCount(prev => prev - 1);
+      setIsDirty(true);
+    }
+  };
+
+  const addProject = () => {
+    setProjectCount(prev => prev + 1);
+    setIsDirty(true);
+  };
+
+  const removeProject = () => {
+    if (projectCount > 1) {
+      setProjectCount(prev => prev - 1);
       setIsDirty(true);
     }
   };
@@ -287,27 +301,27 @@ const TextManager: React.FC = () => {
 
             {expandedSection === section.id && (
               <div className="px-6 pb-6 space-y-4">
-                {section.isDynamic && section.id === 'team' && (
+                {section.isDynamic && (section.id === 'team' || section.id === 'projects') && (
                   <div className="flex items-center gap-4 py-4 border-b border-gray-800">
                     <button
-                      onClick={addTeamMember}
+                      onClick={section.id === 'team' ? addTeamMember : addProject}
                       className="flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors"
                     >
                       <Plus size={16} />
-                      Add Team Member
+                      Add {section.id === 'team' ? 'Team Member' : 'Project'}
                     </button>
                     <button
-                      onClick={removeTeamMember}
-                      disabled={teamMemberCount <= 1}
+                      onClick={section.id === 'team' ? removeTeamMember : removeProject}
+                      disabled={section.id === 'team' ? teamMemberCount <= 1 : projectCount <= 1}
                       className={`flex items-center gap-2 px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 transition-colors ${
-                        teamMemberCount <= 1 ? 'opacity-50 cursor-not-allowed' : ''
+                        (section.id === 'team' ? teamMemberCount <= 1 : projectCount <= 1) ? 'opacity-50 cursor-not-allowed' : ''
                       }`}
                     >
                       <Trash2 size={16} />
-                      Remove Last Member
+                      Remove Last {section.id === 'team' ? 'Member' : 'Project'}
                     </button>
                     <span className="text-gray-400">
-                      Current team size: {teamMemberCount} members
+                      Current {section.id === 'team' ? 'team size' : 'project count'}: {section.id === 'team' ? teamMemberCount : projectCount}
                     </span>
                   </div>
                 )}

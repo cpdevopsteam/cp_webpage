@@ -136,6 +136,48 @@ const ImageManager: React.FC = () => {
       currentImage: '/pictures/team4.jpg',
       recommendedSize: '600x800',
       description: 'Portrait photo, professional headshot'
+    },
+    {
+      id: 'project1',
+      name: 'Project 1',
+      currentImage: '/pictures/project1.jpg',
+      recommendedSize: '800x600',
+      description: 'Project showcase image'
+    },
+    {
+      id: 'project2',
+      name: 'Project 2',
+      currentImage: '/pictures/project2.jpg',
+      recommendedSize: '800x600',
+      description: 'Project showcase image'
+    },
+    {
+      id: 'project3',
+      name: 'Project 3',
+      currentImage: '/pictures/project3.jpg',
+      recommendedSize: '800x600',
+      description: 'Project showcase image'
+    },
+    {
+      id: 'project4',
+      name: 'Project 4',
+      currentImage: '/pictures/project4.jpg',
+      recommendedSize: '800x600',
+      description: 'Project showcase image'
+    },
+    {
+      id: 'project5',
+      name: 'Project 5',
+      currentImage: '/pictures/project5.jpg',
+      recommendedSize: '800x600',
+      description: 'Project showcase image'
+    },
+    {
+      id: 'project6',
+      name: 'Project 6',
+      currentImage: '/pictures/project6.jpg',
+      recommendedSize: '800x600',
+      description: 'Project showcase image'
     }
   ]);
 
