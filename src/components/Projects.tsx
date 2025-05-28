@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
@@ -15,15 +15,6 @@ const Projects: React.FC = () => {
     title: string;
     description: string;
   }[];
-
-  const projectImages = [
-    'https://images.pexels.com/photos/9875441/pexels-photo-9875441.jpeg?auto=compress&cs=tinysrgb&w=600',
-    'https://images.pexels.com/photos/1444416/pexels-photo-1444416.jpeg?auto=compress&cs=tinysrgb&w=600',
-    'https://images.pexels.com/photos/414837/pexels-photo-414837.jpeg?auto=compress&cs=tinysrgb&w=600',
-    'https://images.pexels.com/photos/368893/pexels-photo-368893.jpeg?auto=compress&cs=tinysrgb&w=600',
-    'https://images.pexels.com/photos/442150/pexels-photo-442150.jpeg?auto=compress&cs=tinysrgb&w=600',
-    'https://images.pexels.com/photos/1036936/pexels-photo-1036936.jpeg?auto=compress&cs=tinysrgb&w=600'
-  ];
 
   const container = {
     hidden: { opacity: 0 },
@@ -45,7 +36,7 @@ const Projects: React.FC = () => {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-fixed opacity-20 blur-sm"
         style={{ 
-          backgroundImage: 'url(https://images.pexels.com/photos/356036/pexels-photo-356036.jpeg?auto=compress&cs=tinysrgb&w=1920)',
+          backgroundImage: 'url(/pictures/projects-bg.jpg)',
           transform: 'scale(1.1)'
         }}
       />
@@ -76,7 +67,7 @@ const Projects: React.FC = () => {
             >
               <div className="relative h-64 overflow-hidden">
                 <img
-                  src={projectImages[index % projectImages.length]}
+                  src={`/pictures/project${index + 1}.jpg`}
                   alt={project.title}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
