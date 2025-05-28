@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { Upload, Trash2, RefreshCw } from 'lucide-react';
+import { Upload, Trash2, RefreshCw, Info } from 'lucide-react';
 
 interface ImageSection {
   id: string;
   name: string;
   currentImage: string;
+  recommendedSize: string;
+  description?: string;
 }
 
 const ImageManager: React.FC = () => {
@@ -12,97 +14,134 @@ const ImageManager: React.FC = () => {
     {
       id: 'hero1',
       name: 'Hero Slide 1',
-      currentImage: '/pictures/hero1.jpg'
+      currentImage: '/pictures/hero1.jpg',
+      recommendedSize: '1920x1080',
+      description: 'Full-width hero image, landscape orientation'
     },
     {
       id: 'hero2',
       name: 'Hero Slide 2',
-      currentImage: '/pictures/hero2.jpg'
+      currentImage: '/pictures/hero2.jpg',
+      recommendedSize: '1920x1080',
+      description: 'Full-width hero image, landscape orientation'
     },
     {
       id: 'hero3',
       name: 'Hero Slide 3',
-      currentImage: '/pictures/hero3.jpg'
+      currentImage: '/pictures/hero3.jpg',
+      recommendedSize: '1920x1080',
+      description: 'Full-width hero image, landscape orientation'
     },
     {
       id: 'hero4',
       name: 'Hero Slide 4',
-      currentImage: '/pictures/hero4.jpg'
+      currentImage: '/pictures/hero4.jpg',
+      recommendedSize: '1920x1080',
+      description: 'Full-width hero image, landscape orientation'
     },
     {
       id: 'hero5',
       name: 'Hero Slide 5',
-      currentImage: '/pictures/hero5.jpg'
+      currentImage: '/pictures/hero5.jpg',
+      recommendedSize: '1920x1080',
+      description: 'Full-width hero image, landscape orientation'
     },
     {
       id: 'about',
       name: 'About Section Background',
-      currentImage: '/pictures/about-bg.jpg'
+      currentImage: '/pictures/about-bg.jpg',
+      recommendedSize: '1920x1080',
+      description: 'Full-width background image'
     },
     {
       id: 'aboutTeam',
       name: 'About Team Image',
-      currentImage: '/pictures/about-team.jpg'
+      currentImage: '/pictures/about-team.jpg',
+      recommendedSize: '800x600',
+      description: 'Team showcase image'
     },
     {
       id: 'projectsBg',
       name: 'Projects Background',
-      currentImage: '/pictures/projects-bg.jpg'
+      currentImage: '/pictures/projects-bg.jpg',
+      recommendedSize: '1920x1080',
+      description: 'Full-width background image'
     },
     {
       id: 'partner1',
       name: 'Partner 1',
-      currentImage: '/pictures/partner1.jpg'
+      currentImage: '/pictures/partner1.jpg',
+      recommendedSize: '400x200',
+      description: 'Partner logo, preferably transparent PNG'
     },
     {
       id: 'partner2',
       name: 'Partner 2',
-      currentImage: '/pictures/partner2.jpg'
+      currentImage: '/pictures/partner2.jpg',
+      recommendedSize: '400x200',
+      description: 'Partner logo, preferably transparent PNG'
     },
     {
       id: 'partner3',
       name: 'Partner 3',
-      currentImage: '/pictures/partner3.jpg'
+      currentImage: '/pictures/partner3.jpg',
+      recommendedSize: '400x200',
+      description: 'Partner logo, preferably transparent PNG'
     },
     {
       id: 'partner4',
       name: 'Partner 4',
-      currentImage: '/pictures/partner4.jpg'
+      currentImage: '/pictures/partner4.jpg',
+      recommendedSize: '400x200',
+      description: 'Partner logo, preferably transparent PNG'
     },
     {
       id: 'partner5',
       name: 'Partner 5',
-      currentImage: '/pictures/partner5.jpg'
+      currentImage: '/pictures/partner5.jpg',
+      recommendedSize: '400x200',
+      description: 'Partner logo, preferably transparent PNG'
     },
     {
       id: 'partner6',
       name: 'Partner 6',
-      currentImage: '/pictures/partner6.jpg'
+      currentImage: '/pictures/partner6.jpg',
+      recommendedSize: '400x200',
+      description: 'Partner logo, preferably transparent PNG'
     },
     {
       id: 'team1',
       name: 'Team Member 1',
-      currentImage: '/pictures/team1.jpg'
+      currentImage: '/pictures/team1.jpg',
+      recommendedSize: '600x800',
+      description: 'Portrait photo, professional headshot'
     },
     {
       id: 'team2',
       name: 'Team Member 2',
-      currentImage: '/pictures/team2.jpg'
+      currentImage: '/pictures/team2.jpg',
+      recommendedSize: '600x800',
+      description: 'Portrait photo, professional headshot'
     },
     {
       id: 'team3',
       name: 'Team Member 3',
-      currentImage: '/pictures/team3.jpg'
+      currentImage: '/pictures/team3.jpg',
+      recommendedSize: '600x800',
+      description: 'Portrait photo, professional headshot'
     },
     {
       id: 'team4',
       name: 'Team Member 4',
-      currentImage: '/pictures/team4.jpg'
+      currentImage: '/pictures/team4.jpg',
+      recommendedSize: '600x800',
+      description: 'Portrait photo, professional headshot'
     }
   ]);
 
   const [filter, setFilter] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
+  const [showGuide, setShowGuide] = useState(false);
 
   const categories = [
     { id: 'all', name: 'All Images' },
@@ -122,9 +161,48 @@ const ImageManager: React.FC = () => {
   return (
     <div className="space-y-8">
       <div className="border-b border-gray-800 pb-4">
-        <h2 className="text-xl font-semibold text-white">Image Management</h2>
-        <p className="text-gray-400 mt-1">View images across different sections of the website</p>
+        <div className="flex items-center justify-between">
+          <div>
+            <h2 className="text-xl font-semibold text-white">Image Management</h2>
+            <p className="text-gray-400 mt-1">View and manage images across different sections</p>
+          </div>
+          <button
+            onClick={() => setShowGuide(!showGuide)}
+            className="flex items-center gap-2 px-4 py-2 bg-[#2a2a2a] text-white rounded-md hover:bg-[#3a3a3a] transition-colors"
+          >
+            <Info size={16} />
+            Image Guidelines
+          </button>
+        </div>
       </div>
+
+      {showGuide && (
+        <div className="bg-[#1a1a1a] p-6 rounded-lg border border-gray-800">
+          <h3 className="text-lg font-medium text-white mb-4">Image Guidelines</h3>
+          <div className="space-y-4">
+            <div>
+              <h4 className="text-sm font-medium text-gray-300">File Format</h4>
+              <p className="text-gray-400 text-sm">Use JPG for photos, PNG for logos and images requiring transparency</p>
+            </div>
+            <div>
+              <h4 className="text-sm font-medium text-gray-300">File Size</h4>
+              <p className="text-gray-400 text-sm">Keep file sizes under 500KB for optimal performance</p>
+            </div>
+            <div>
+              <h4 className="text-sm font-medium text-gray-300">Image Quality</h4>
+              <p className="text-gray-400 text-sm">Use 72 DPI for web images, ensure images are sharp and well-lit</p>
+            </div>
+            <div>
+              <h4 className="text-sm font-medium text-gray-300">Aspect Ratio</h4>
+              <ul className="text-gray-400 text-sm list-disc list-inside">
+                <li>Hero images: 16:9 aspect ratio</li>
+                <li>Team photos: 3:4 portrait orientation</li>
+                <li>Partner logos: 2:1 landscape orientation</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      )}
 
       <div className="flex flex-col md:flex-row gap-4 items-start md:items-center justify-between">
         <div className="flex-1 w-full md:w-auto">
@@ -165,12 +243,16 @@ const ImageManager: React.FC = () => {
                 alt={section.name}
                 className="w-full h-48 object-cover"
               />
+              <div className="absolute top-2 right-2 bg-black/75 px-2 py-1 rounded text-xs text-white">
+                {section.recommendedSize}
+              </div>
             </div>
             <div className="p-4">
               <h3 className="font-medium text-white">{section.name}</h3>
-              <p className="text-sm text-gray-400 mt-1">Image path:</p>
-              <div className="mt-1 text-sm text-gray-500 break-all bg-[#0a0a0a] p-2 rounded">
-                {section.currentImage}
+              <p className="text-sm text-gray-400 mt-1">{section.description}</p>
+              <div className="mt-2">
+                <p className="text-xs text-gray-500">Recommended size: {section.recommendedSize}</p>
+                <p className="text-xs text-gray-500 mt-1">Current path: {section.currentImage}</p>
               </div>
             </div>
           </div>
@@ -179,8 +261,11 @@ const ImageManager: React.FC = () => {
 
       <div className="mt-8 p-6 bg-[#1a1a1a] rounded-lg border border-gray-800">
         <div className="text-center text-gray-400">
-          <p>To update images, please place them in the <code>/public/pictures</code> directory with the correct filename.</p>
-          <p className="mt-2">Example: For Hero Slide 1, use <code>/public/pictures/hero1.jpg</code></p>
+          <h3 className="font-medium text-white mb-2">How to Update Images</h3>
+          <p>1. Prepare your image according to the recommended size</p>
+          <p>2. Save the image with the correct filename (e.g., hero1.jpg)</p>
+          <p>3. Place the file in the <code>/public/pictures</code> directory</p>
+          <p>4. The website will automatically use the new image</p>
         </div>
       </div>
     </div>
