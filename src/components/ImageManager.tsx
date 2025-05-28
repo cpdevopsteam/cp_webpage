@@ -68,6 +68,48 @@ const ImageManager: React.FC = () => {
       description: 'Full-width background image'
     },
     {
+      id: 'project1',
+      name: 'Project 1',
+      currentImage: '/pictures/project1.jpg',
+      recommendedSize: '800x600',
+      description: 'Project showcase image'
+    },
+    {
+      id: 'project2',
+      name: 'Project 2',
+      currentImage: '/pictures/project2.jpg',
+      recommendedSize: '800x600',
+      description: 'Project showcase image'
+    },
+    {
+      id: 'project3',
+      name: 'Project 3',
+      currentImage: '/pictures/project3.jpg',
+      recommendedSize: '800x600',
+      description: 'Project showcase image'
+    },
+    {
+      id: 'project4',
+      name: 'Project 4',
+      currentImage: '/pictures/project4.jpg',
+      recommendedSize: '800x600',
+      description: 'Project showcase image'
+    },
+    {
+      id: 'project5',
+      name: 'Project 5',
+      currentImage: '/pictures/project5.jpg',
+      recommendedSize: '800x600',
+      description: 'Project showcase image'
+    },
+    {
+      id: 'project6',
+      name: 'Project 6',
+      currentImage: '/pictures/project6.jpg',
+      recommendedSize: '800x600',
+      description: 'Project showcase image'
+    },
+    {
       id: 'partner1',
       name: 'Partner 1',
       currentImage: '/pictures/partner1.jpg',
@@ -136,48 +178,6 @@ const ImageManager: React.FC = () => {
       currentImage: '/pictures/team4.jpg',
       recommendedSize: '600x800',
       description: 'Portrait photo, professional headshot'
-    },
-    {
-      id: 'project1',
-      name: 'Project 1',
-      currentImage: '/pictures/project1.jpg',
-      recommendedSize: '800x600',
-      description: 'Project showcase image'
-    },
-    {
-      id: 'project2',
-      name: 'Project 2',
-      currentImage: '/pictures/project2.jpg',
-      recommendedSize: '800x600',
-      description: 'Project showcase image'
-    },
-    {
-      id: 'project3',
-      name: 'Project 3',
-      currentImage: '/pictures/project3.jpg',
-      recommendedSize: '800x600',
-      description: 'Project showcase image'
-    },
-    {
-      id: 'project4',
-      name: 'Project 4',
-      currentImage: '/pictures/project4.jpg',
-      recommendedSize: '800x600',
-      description: 'Project showcase image'
-    },
-    {
-      id: 'project5',
-      name: 'Project 5',
-      currentImage: '/pictures/project5.jpg',
-      recommendedSize: '800x600',
-      description: 'Project showcase image'
-    },
-    {
-      id: 'project6',
-      name: 'Project 6',
-      currentImage: '/pictures/project6.jpg',
-      recommendedSize: '800x600',
-      description: 'Project showcase image'
     }
   ]);
 
@@ -189,9 +189,9 @@ const ImageManager: React.FC = () => {
     { id: 'all', name: 'All Images' },
     { id: 'hero', name: 'Hero Slides' },
     { id: 'about', name: 'About Section' },
-    { id: 'partners', name: 'Partners' },
-    { id: 'team', name: 'Team Members' },
-    { id: 'projects', name: 'Projects' }
+    { id: 'project', name: 'Projects' },
+    { id: 'partner', name: 'Partners' },
+    { id: 'team', name: 'Team Members' }
   ];
 
   const filteredSections = sections.filter(section => {
@@ -240,6 +240,7 @@ const ImageManager: React.FC = () => {
                 <li>Hero images: 16:9 aspect ratio</li>
                 <li>Team photos: 3:4 portrait orientation</li>
                 <li>Partner logos: 2:1 landscape orientation</li>
+                <li>Project images: 4:3 landscape orientation</li>
               </ul>
             </div>
           </div>
