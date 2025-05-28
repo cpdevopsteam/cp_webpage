@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   MDBBtn,
   MDBContainer,
@@ -6,10 +7,31 @@ import {
   MDBCardBody,
   MDBInput,
 } from 'mdb-react-ui-kit';
-
+import axios, { AxiosResponse } from 'axios';           // <— import AxiosResponse for typing
 import logo from '../assets/logo-transparent-grey.png';
 
+type LoginResponse = { token: string };
+
 export default function Login() {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+
+  const handleLogin = async () => {
+    try {
+      const { data }: AxiosResponse<LoginResponse> = await axios.post(
+        'http://10.1.1.196:4000/api/login',
+        { username, password }
+      );
+
+      localStorage.setItem('token', data.token);
+      navigate('/termeles');
+    } catch (error) {
+      console.error('❌ Login failed:', error);
+      alert('Login failed. Check username/password.');
+    }
+  };
+
   return (
     <MDBContainer
       fluid
@@ -19,7 +41,7 @@ export default function Login() {
           'linear-gradient(to right, rgba(245,141,72,1), rgba(52,152,217,1))',
       }}
     >
-      {/*  ➜  NEW wrapper just to shift everything up a touch  */}
+      {/* shift everything up slightly */}
       <div
         className="d-flex flex-column align-items-center gap-4"
         style={{ transform: 'translateY(-6vh)' }}
@@ -33,27 +55,44 @@ export default function Login() {
           <MDBCardBody className="p-5 d-flex flex-column align-items-center">
             <h2 className="fw-bold mb-2 text-uppercase">Login</h2>
             <p className="text-white-50 mb-5">
-              Please enter your login and password!
+              Please enter your username and password
             </p>
 
             <MDBInput
+              contrast
               wrapperClass="mb-4 w-100"
               labelClass="text-white"
               label="Username"
               id="username"
               type="text"
               size="lg"
+              value={username}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                setUsername(e.target.value)
+              }
             />
+
             <MDBInput
+              contrast
               wrapperClass="mb-4 w-100"
               labelClass="text-white"
               label="Password"
               id="password"
               type="password"
               size="lg"
+              value={password}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                setPassword(e.target.value)
+              }
             />
 
-            <MDBBtn outline className="px-5" color="white" size="lg">
+            <MDBBtn
+              outline
+              className="px-5"
+              color="white"
+              size="lg"
+              onClick={handleLogin}
+            >
               Login
             </MDBBtn>
 
