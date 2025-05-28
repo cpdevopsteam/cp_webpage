@@ -8,7 +8,8 @@ interface Section {
   fields: {
     key: string;
     label: string;
-    type: 'text' | 'textarea';
+    type: 'text' | 'textarea' | 'items';
+    itemsKey?: string;
   }[];
   isDynamic?: boolean;
 }
@@ -18,7 +19,18 @@ const TextManager: React.FC = () => {
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
   const [isDirty, setIsDirty] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
-  const [teamMemberCount, setTeamMemberCount] = useState(4); // Start with default 4 members
+  const [teamMemberCount, setTeamMemberCount] = useState(4);
+  const [serviceItems, setServiceItems] = useState<Record<string, string[]>>({
+    'services.planning.items': t('services.planning.items', { returnObjects: true }) as string[],
+    'services.implementation.items': t('services.implementation.items', { returnObjects: true }) as string[],
+    'services.electrical.items': t('services.electrical.items', { returnObjects: true }) as string[],
+    'services.security.items': t('services.security.items', { returnObjects: true }) as string[],
+    'services.it.items': t('services.it.items', { returnObjects: true }) as string[],
+    'services.commissioning.items': t('services.commissioning.items', { returnObjects: true }) as string[],
+    'services.operations.items': t('services.operations.items', { returnObjects: true }) as string[],
+    'services.monitoring.items': t('services.monitoring.items', { returnObjects: true }) as string[],
+    'services.dataAnalysis.items': t('services.dataAnalysis.items', { returnObjects: true }) as string[]
+  });
 
   const generateTeamFields = (count: number) => {
     const fields = [];
@@ -68,14 +80,23 @@ const TextManager: React.FC = () => {
       fields: [
         { key: 'services.title', label: 'Section Title', type: 'text' },
         { key: 'services.planning.title', label: 'Planning Title', type: 'text' },
+        { key: 'services.planning.items', label: 'Planning Items', type: 'items', itemsKey: 'services.planning.items' },
         { key: 'services.implementation.title', label: 'Implementation Title', type: 'text' },
+        { key: 'services.implementation.items', label: 'Implementation Items', type: 'items', itemsKey: 'services.implementation.items' },
         { key: 'services.electrical.title', label: 'Electrical Title', type: 'text' },
+        { key: 'services.electrical.items', label: 'Electrical Items', type: 'items', itemsKey: 'services.electrical.items' },
         { key: 'services.security.title', label: 'Security Title', type: 'text' },
+        { key: 'services.security.items', label: 'Security Items', type: 'items', itemsKey: 'services.security.items' },
         { key: 'services.it.title', label: 'IT Title', type: 'text' },
+        { key: 'services.it.items', label: 'IT Items', type: 'items', itemsKey: 'services.it.items' },
         { key: 'services.commissioning.title', label: 'Commissioning Title', type: 'text' },
+        { key: 'services.commissioning.items', label: 'Commissioning Items', type: 'items', itemsKey: 'services.commissioning.items' },
         { key: 'services.operations.title', label: 'Operations Title', type: 'text' },
+        { key: 'services.operations.items', label: 'Operations Items', type: 'items', itemsKey: 'services.operations.items' },
         { key: 'services.monitoring.title', label: 'Monitoring Title', type: 'text' },
-        { key: 'services.dataAnalysis.title', label: 'Data Analysis Title', type: 'text' }
+        { key: 'services.monitoring.items', label: 'Monitoring Items', type: 'items', itemsKey: 'services.monitoring.items' },
+        { key: 'services.dataAnalysis.title', label: 'Data Analysis Title', type: 'text' },
+        { key: 'services.dataAnalysis.items', label: 'Data Analysis Items', type: 'items', itemsKey: 'services.dataAnalysis.items' }
       ]
     },
     {
@@ -169,6 +190,30 @@ const TextManager: React.FC = () => {
       setTeamMemberCount(prev => prev - 1);
       setIsDirty(true);
     }
+  };
+
+  const addServiceItem = (itemsKey: string) => {
+    setServiceItems(prev => ({
+      ...prev,
+      [itemsKey]: [...prev[itemsKey], '']
+    }));
+    setIsDirty(true);
+  };
+
+  const removeServiceItem = (itemsKey: string, index: number) => {
+    setServiceItems(prev => ({
+      ...prev,
+      [itemsKey]: prev[itemsKey].filter((_, i) => i !== index)
+    }));
+    setIsDirty(true);
+  };
+
+  const updateServiceItem = (itemsKey: string, index: number, value: string) => {
+    setServiceItems(prev => ({
+      ...prev,
+      [itemsKey]: prev[itemsKey].map((item, i) => i === index ? value : item)
+    }));
+    setIsDirty(true);
   };
 
   return (
@@ -271,7 +316,33 @@ const TextManager: React.FC = () => {
                     <label className="block text-sm font-medium text-gray-400">
                       {field.label}
                     </label>
-                    {field.type === 'textarea' ? (
+                    {field.type === 'items' && field.itemsKey ? (
+                      <div className="space-y-2">
+                        {serviceItems[field.itemsKey].map((item, index) => (
+                          <div key={index} className="flex gap-2">
+                            <input
+                              type="text"
+                              value={item}
+                              onChange={(e) => updateServiceItem(field.itemsKey!, index, e.target.value)}
+                              className="flex-1 px-3 py-2 bg-[#0a0a0a] border border-gray-700 rounded-md text-white focus:outline-none focus:ring-[var(--primary-color)] focus:border-[var(--primary-color)]"
+                            />
+                            <button
+                              onClick={() => removeServiceItem(field.itemsKey!, index)}
+                              className="p-2 text-red-500 hover:text-red-400"
+                            >
+                              <Trash2 size={16} />
+                            </button>
+                          </div>
+                        ))}
+                        <button
+                          onClick={() => addServiceItem(field.itemsKey)}
+                          className="flex items-center gap-2 px-4 py-2 bg-[#2a2a2a] text-white rounded-md hover:bg-[#3a3a3a] transition-colors"
+                        >
+                          <Plus size={16} />
+                          Add Item
+                        </button>
+                      </div>
+                    ) : field.type === 'textarea' ? (
                       <textarea
                         defaultValue={t(field.key)}
                         onChange={() => setIsDirty(true)}
