@@ -8,7 +8,7 @@ interface ImageSection {
 }
 
 const ImageManager: React.FC = () => {
-  const [sections, setSections] = useState<ImageSection[]>([
+  const [sections] = useState<ImageSection[]>([
     {
       id: 'hero1',
       name: 'Hero Slide 1',
@@ -119,46 +119,11 @@ const ImageManager: React.FC = () => {
     return matchesSearch && matchesCategory;
   });
 
-  const handleImageUpload = async (sectionId: string, file: File) => {
-    try {
-      const reader = new FileReader();
-      reader.onload = async (e) => {
-        if (e.target?.result) {
-          // Create a copy of the image data
-          const imageData = e.target.result;
-          
-          // Update the sections state with the new image
-          setSections(prevSections => 
-            prevSections.map(section => 
-              section.id === sectionId 
-                ? { ...section, currentImage: imageData as string }
-                : section
-            )
-          );
-        }
-      };
-      reader.readAsDataURL(file);
-    } catch (error) {
-      console.error('Error uploading image:', error);
-    }
-  };
-
-  const handleImageDelete = (sectionId: string) => {
-    // Reset the image to its default state
-    setSections(prevSections =>
-      prevSections.map(section =>
-        section.id === sectionId
-          ? { ...section, currentImage: `/pictures/${section.id}.jpg` }
-          : section
-      )
-    );
-  };
-
   return (
     <div className="space-y-8">
       <div className="border-b border-gray-800 pb-4">
         <h2 className="text-xl font-semibold text-white">Image Management</h2>
-        <p className="text-gray-400 mt-1">Manage images across different sections of the website</p>
+        <p className="text-gray-400 mt-1">View images across different sections of the website</p>
       </div>
 
       <div className="flex flex-col md:flex-row gap-4 items-start md:items-center justify-between">
@@ -200,33 +165,10 @@ const ImageManager: React.FC = () => {
                 alt={section.name}
                 className="w-full h-48 object-cover"
               />
-              <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
-                <div className="flex gap-2">
-                  <label className="btn btn-primary cursor-pointer">
-                    <input
-                      type="file"
-                      className="hidden"
-                      accept="image/*"
-                      onChange={(e) => {
-                        const file = e.target.files?.[0];
-                        if (file) handleImageUpload(section.id, file);
-                      }}
-                    />
-                    <RefreshCw size={16} className="mr-2" />
-                    Replace
-                  </label>
-                  <button
-                    onClick={() => handleImageDelete(section.id)}
-                    className="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600 transition-colors flex items-center"
-                  >
-                    <Trash2 size={16} />
-                  </button>
-                </div>
-              </div>
             </div>
             <div className="p-4">
               <h3 className="font-medium text-white">{section.name}</h3>
-              <p className="text-sm text-gray-400 mt-1">Current image path:</p>
+              <p className="text-sm text-gray-400 mt-1">Image path:</p>
               <div className="mt-1 text-sm text-gray-500 break-all bg-[#0a0a0a] p-2 rounded">
                 {section.currentImage}
               </div>
@@ -236,16 +178,9 @@ const ImageManager: React.FC = () => {
       </div>
 
       <div className="mt-8 p-6 bg-[#1a1a1a] rounded-lg border border-gray-800">
-        <div className="flex items-center justify-between">
-          <div>
-            <h3 className="text-lg font-medium text-white">Upload New Image</h3>
-            <p className="text-sm text-gray-400 mt-1">Add a new image to the library</p>
-          </div>
-          <label className="btn btn-primary cursor-pointer flex items-center gap-2">
-            <Upload size={16} />
-            Upload Image
-            <input type="file" className="hidden" accept="image/*" />
-          </label>
+        <div className="text-center text-gray-400">
+          <p>To update images, please place them in the <code>/public/pictures</code> directory with the correct filename.</p>
+          <p className="mt-2">Example: For Hero Slide 1, use <code>/public/pictures/hero1.jpg</code></p>
         </div>
       </div>
     </div>
