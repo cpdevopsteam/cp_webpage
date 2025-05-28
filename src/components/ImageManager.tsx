@@ -8,96 +8,96 @@ interface ImageSection {
 }
 
 const ImageManager: React.FC = () => {
-  const [sections] = useState<ImageSection[]>([
+  const [sections, setSections] = useState<ImageSection[]>([
     {
       id: 'hero1',
       name: 'Hero Slide 1',
-      currentImage: 'https://images.pexels.com/photos/2988232/pexels-photo-2988232.jpeg'
+      currentImage: '/pictures/hero1.jpg'
     },
     {
       id: 'hero2',
       name: 'Hero Slide 2',
-      currentImage: 'https://images.pexels.com/photos/9875441/pexels-photo-9875441.jpeg'
+      currentImage: '/pictures/hero2.jpg'
     },
     {
       id: 'hero3',
       name: 'Hero Slide 3',
-      currentImage: 'https://images.pexels.com/photos/3945683/pexels-photo-3945683.jpeg'
+      currentImage: '/pictures/hero3.jpg'
     },
     {
       id: 'hero4',
       name: 'Hero Slide 4',
-      currentImage: 'https://images.pexels.com/photos/6968434/pexels-photo-6968434.jpeg'
+      currentImage: '/pictures/hero4.jpg'
     },
     {
       id: 'hero5',
       name: 'Hero Slide 5',
-      currentImage: 'https://images.pexels.com/photos/8294618/pexels-photo-8294618.jpeg'
+      currentImage: '/pictures/hero5.jpg'
     },
     {
       id: 'about',
       name: 'About Section Background',
-      currentImage: 'https://images.pexels.com/photos/3183183/pexels-photo-3183183.jpeg'
+      currentImage: '/pictures/about-bg.jpg'
     },
     {
       id: 'aboutTeam',
       name: 'About Team Image',
-      currentImage: 'https://images.pexels.com/photos/4194850/pexels-photo-4194850.jpeg'
+      currentImage: '/pictures/about-team.jpg'
     },
     {
       id: 'projectsBg',
       name: 'Projects Background',
-      currentImage: 'https://images.pexels.com/photos/356036/pexels-photo-356036.jpeg'
+      currentImage: '/pictures/projects-bg.jpg'
     },
     {
       id: 'partner1',
       name: 'Partner 1',
-      currentImage: 'https://images.pexels.com/photos/2977547/pexels-photo-2977547.jpeg'
+      currentImage: '/pictures/partner1.jpg'
     },
     {
       id: 'partner2',
       name: 'Partner 2',
-      currentImage: 'https://images.pexels.com/photos/2977565/pexels-photo-2977565.jpeg'
+      currentImage: '/pictures/partner2.jpg'
     },
     {
       id: 'partner3',
       name: 'Partner 3',
-      currentImage: 'https://images.pexels.com/photos/2977549/pexels-photo-2977549.jpeg'
+      currentImage: '/pictures/partner3.jpg'
     },
     {
       id: 'partner4',
       name: 'Partner 4',
-      currentImage: 'https://images.pexels.com/photos/2977551/pexels-photo-2977551.jpeg'
+      currentImage: '/pictures/partner4.jpg'
     },
     {
       id: 'partner5',
       name: 'Partner 5',
-      currentImage: 'https://images.pexels.com/photos/2977553/pexels-photo-2977553.jpeg'
+      currentImage: '/pictures/partner5.jpg'
     },
     {
       id: 'partner6',
       name: 'Partner 6',
-      currentImage: 'https://images.pexels.com/photos/2977555/pexels-photo-2977555.jpeg'
+      currentImage: '/pictures/partner6.jpg'
     },
     {
       id: 'team1',
       name: 'Team Member 1',
-      currentImage: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg'
+      currentImage: '/pictures/team1.jpg'
     },
     {
       id: 'team2',
       name: 'Team Member 2',
-      currentImage: 'https://images.pexels.com/photos/1516680/pexels-photo-1516680.jpeg'
+      currentImage: '/pictures/team2.jpg'
     },
     {
       id: 'team3',
       name: 'Team Member 3',
-      currentImage: 'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg'
+      currentImage: '/pictures/team3.jpg'
     },
     {
       id: 'team4',
       name: 'Team Member 4',
-      currentImage: 'https://images.pexels.com/photos/3785104/pexels-photo-3785104.jpeg'
+      currentImage: '/pictures/team4.jpg'
     }
   ]);
 
@@ -119,14 +119,39 @@ const ImageManager: React.FC = () => {
     return matchesSearch && matchesCategory;
   });
 
-  const handleImageUpload = (sectionId: string, file: File) => {
-    // Here you would implement the actual image upload logic
-    console.log(`Uploading image for section ${sectionId}:`, file);
+  const handleImageUpload = async (sectionId: string, file: File) => {
+    try {
+      const reader = new FileReader();
+      reader.onload = async (e) => {
+        if (e.target?.result) {
+          // Create a copy of the image data
+          const imageData = e.target.result;
+          
+          // Update the sections state with the new image
+          setSections(prevSections => 
+            prevSections.map(section => 
+              section.id === sectionId 
+                ? { ...section, currentImage: imageData as string }
+                : section
+            )
+          );
+        }
+      };
+      reader.readAsDataURL(file);
+    } catch (error) {
+      console.error('Error uploading image:', error);
+    }
   };
 
   const handleImageDelete = (sectionId: string) => {
-    // Here you would implement the actual image deletion logic
-    console.log(`Deleting image for section ${sectionId}`);
+    // Reset the image to its default state
+    setSections(prevSections =>
+      prevSections.map(section =>
+        section.id === sectionId
+          ? { ...section, currentImage: `/pictures/${section.id}.jpg` }
+          : section
+      )
+    );
   };
 
   return (
@@ -201,7 +226,7 @@ const ImageManager: React.FC = () => {
             </div>
             <div className="p-4">
               <h3 className="font-medium text-white">{section.name}</h3>
-              <p className="text-sm text-gray-400 mt-1">Current image URL:</p>
+              <p className="text-sm text-gray-400 mt-1">Current image path:</p>
               <div className="mt-1 text-sm text-gray-500 break-all bg-[#0a0a0a] p-2 rounded">
                 {section.currentImage}
               </div>
