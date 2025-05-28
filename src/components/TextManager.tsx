@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Save, ChevronDown, ChevronUp, Search } from 'lucide-react';
+import { Save, ChevronDown, ChevronUp, Search, Plus, Trash2 } from 'lucide-react';
 
 interface Section {
   id: string;
@@ -10,6 +10,7 @@ interface Section {
     label: string;
     type: 'text' | 'textarea';
   }[];
+  isDynamic?: boolean;
 }
 
 const TextManager: React.FC = () => {
@@ -17,6 +18,19 @@ const TextManager: React.FC = () => {
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
   const [isDirty, setIsDirty] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
+  const [teamMemberCount, setTeamMemberCount] = useState(4); // Start with default 4 members
+
+  const generateTeamFields = (count: number) => {
+    const fields = [];
+    for (let i = 0; i < count; i++) {
+      fields.push(
+        { key: `team.members.${i}.name`, label: `Member ${i + 1} Name`, type: 'text' as const },
+        { key: `team.members.${i}.role`, label: `Member ${i + 1} Role`, type: 'text' as const },
+        { key: `team.members.${i}.quote`, label: `Member ${i + 1} Quote`, type: 'textarea' as const }
+      );
+    }
+    return fields;
+  };
 
   const sections: Section[] = [
     {
@@ -67,21 +81,11 @@ const TextManager: React.FC = () => {
     {
       id: 'team',
       name: 'Team Section',
+      isDynamic: true,
       fields: [
         { key: 'team.title', label: 'Section Title', type: 'text' },
         { key: 'team.description', label: 'Section Description', type: 'textarea' },
-        { key: 'team.members.0.name', label: 'Member 1 Name', type: 'text' },
-        { key: 'team.members.0.role', label: 'Member 1 Role', type: 'text' },
-        { key: 'team.members.0.quote', label: 'Member 1 Quote', type: 'textarea' },
-        { key: 'team.members.1.name', label: 'Member 2 Name', type: 'text' },
-        { key: 'team.members.1.role', label: 'Member 2 Role', type: 'text' },
-        { key: 'team.members.1.quote', label: 'Member 2 Quote', type: 'textarea' },
-        { key: 'team.members.2.name', label: 'Member 3 Name', type: 'text' },
-        { key: 'team.members.2.role', label: 'Member 3 Role', type: 'text' },
-        { key: 'team.members.2.quote', label: 'Member 3 Quote', type: 'textarea' },
-        { key: 'team.members.3.name', label: 'Member 4 Name', type: 'text' },
-        { key: 'team.members.3.role', label: 'Member 4 Role', type: 'text' },
-        { key: 'team.members.3.quote', label: 'Member 4 Quote', type: 'textarea' }
+        ...generateTeamFields(teamMemberCount)
       ]
     },
     {
@@ -155,6 +159,18 @@ const TextManager: React.FC = () => {
     setExpandedSection(expandedSection === sectionId ? null : sectionId);
   };
 
+  const addTeamMember = () => {
+    setTeamMemberCount(prev => prev + 1);
+    setIsDirty(true);
+  };
+
+  const removeTeamMember = () => {
+    if (teamMemberCount > 1) {
+      setTeamMemberCount(prev => prev - 1);
+      setIsDirty(true);
+    }
+  };
+
   return (
     <div className="space-y-8">
       <div className="flex items-center justify-between border-b border-gray-800 pb-4">
@@ -226,6 +242,30 @@ const TextManager: React.FC = () => {
 
             {expandedSection === section.id && (
               <div className="px-6 pb-6 space-y-4">
+                {section.isDynamic && section.id === 'team' && (
+                  <div className="flex items-center gap-4 py-4 border-b border-gray-800">
+                    <button
+                      onClick={addTeamMember}
+                      className="flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors"
+                    >
+                      <Plus size={16} />
+                      Add Team Member
+                    </button>
+                    <button
+                      onClick={removeTeamMember}
+                      disabled={teamMemberCount <= 1}
+                      className={`flex items-center gap-2 px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 transition-colors ${
+                        teamMemberCount <= 1 ? 'opacity-50 cursor-not-allowed' : ''
+                      }`}
+                    >
+                      <Trash2 size={16} />
+                      Remove Last Member
+                    </button>
+                    <span className="text-gray-400">
+                      Current team size: {teamMemberCount} members
+                    </span>
+                  </div>
+                )}
                 {section.fields.map((field) => (
                   <div key={field.key} className="space-y-2">
                     <label className="block text-sm font-medium text-gray-400">
