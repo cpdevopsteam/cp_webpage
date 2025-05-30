@@ -7,7 +7,7 @@ import {
   MDBCardBody,
   MDBInput,
 } from 'mdb-react-ui-kit';
-import axios, { AxiosResponse } from 'axios';           // <— import AxiosResponse for typing
+import axios, { AxiosResponse } from 'axios';
 import logo from '../assets/logo-transparent-grey.png';
 
 type LoginResponse = { token: string };
