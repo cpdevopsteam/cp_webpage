@@ -17,7 +17,8 @@ export default function Login() {
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
-  const handleLogin = async () => {
+  const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     try {
       const { data }: AxiosResponse<LoginResponse> = await axios.post(
         'http://10.1.1.196:4000/api/login',
@@ -52,60 +53,65 @@ export default function Login() {
           className="bg-dark text-white"
           style={{ borderRadius: '1rem', maxWidth: 400, width: '100%' }}
         >
-          <MDBCardBody className="p-5 d-flex flex-column align-items-center">
-            <h2 className="fw-bold mb-2 text-uppercase">Login</h2>
-            <p className="text-white-50 mb-5">
-              Please enter your username and password
-            </p>
-
-            <MDBInput
-              contrast
-              wrapperClass="mb-4 w-100"
-              labelClass="text-white"
-              label="Username"
-              id="username"
-              type="text"
-              size="lg"
-              value={username}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                setUsername(e.target.value)
-              }
-            />
-
-            <MDBInput
-              contrast
-              wrapperClass="mb-4 w-100"
-              labelClass="text-white"
-              label="Password"
-              id="password"
-              type="password"
-              size="lg"
-              value={password}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                setPassword(e.target.value)
-              }
-            />
-
-            <MDBBtn
-              outline
-              className="px-5"
-              color="white"
-              size="lg"
-              onClick={handleLogin}
+          <MDBCardBody className="p-0 d-flex flex-column align-items-center">
+            <form
+              onSubmit={handleLogin}
+              className="p-5 d-flex flex-column align-items-center w-100"
             >
-              Login
-            </MDBBtn>
+              <h2 className="fw-bold mb-2 text-uppercase">Login</h2>
+              <p className="text-white-50 mb-5 whitespace-nowrap">
+                Please enter your username and password!
+              </p>
 
-            <MDBBtn
-              tag="a"
-              outline
-              color="light"
-              size="lg"
-              href="/"
-              className="mt-4 px-5"
-            >
-              Back to Main
-            </MDBBtn>
+              <MDBInput
+                contrast
+                wrapperClass="mb-4 w-100"
+                labelClass="text-white"
+                label="Username"
+                id="username"
+                type="text"
+                size="lg"
+                value={username}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                  setUsername(e.target.value)
+                }
+              />
+
+              <MDBInput
+                contrast
+                wrapperClass="mb-4 w-100"
+                labelClass="text-white"
+                label="Password"
+                id="password"
+                type="password"
+                size="lg"
+                value={password}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                  setPassword(e.target.value)
+                }
+              />
+
+              <MDBBtn
+                type="submit"
+                outline
+                className="px-5"
+                color="white"
+                size="lg"
+              >
+                Login
+              </MDBBtn>
+
+              <MDBBtn
+                tag="a"
+                href="/"
+                outline
+                color="light"
+                size="lg"
+                className="mt-8 px-5"
+              >
+                Back to Main
+              </MDBBtn>
+            </form>
           </MDBCardBody>
         </MDBCard>
       </div>
