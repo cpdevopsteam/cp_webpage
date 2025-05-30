@@ -3,6 +3,8 @@ import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { CalendarDays, Map } from 'lucide-react';
+import OfficeImg from '../assets/IMG_1496.jpeg'
+import MapImg from '../assets/cp_webpage_map.png'
 
 const About: React.FC = () => {
   const { t } = useTranslation();
@@ -16,7 +18,7 @@ const About: React.FC = () => {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-fixed opacity-20 blur-sm"
         style={{ 
-          backgroundImage: 'url(https://images.pexels.com/photos/3183183/pexels-photo-3183183.jpeg?auto=compress&cs=tinysrgb&w=1920)',
+          backgroundImage: `url(${OfficeImg})`,
           transform: 'scale(1.1)'
         }}
       />
@@ -41,7 +43,7 @@ const About: React.FC = () => {
             className="rounded-lg overflow-hidden"
           >
             <img
-              src="https://images.pexels.com/photos/4194850/pexels-photo-4194850.jpeg?auto=compress&cs=tinysrgb&w=1260"
+              src = {MapImg}
               alt="Control Pass Facilities"
               className="w-full h-full object-cover"
             />
@@ -70,7 +72,7 @@ const About: React.FC = () => {
             <div className="mt-8">
               <div className="p-4 bg-[var(--card-bg)] rounded-lg border border-gray-800">
                 <blockquote className="italic text-[var(--text-muted)]">
-                  "{t('team.members.0.quote')}"
+                  "{t('Világunk folyamatosan változik. A modern elektronikai megoldások kényelmesebbé teszik egy vállalkozás életét. De egy felelős vezető biztonsági szempontból sem köthet kompromisszumot. Ehhez olyan megoldásokra van szükség, melyek védelmet nyújtanak a jövő adatvédelmiés biztonságtechnikai kihívásaival szemben. Csapatunk 2010 óta foglalkozik ipari riasztó és megfigyelőrendszerek kivitelezésével és karbantartásával. Márakomplex telekommunikációs, hálózati, biztonságtechnikaiés energetikai megoldásokat kínálunk. Kezdve a térfigyelőkameráktól, a beléptető rendszereken keresztül egészen az ipari PV erőművek villamos és informatikai hálózatokig.')}"
                 </blockquote>
                 <div className="mt-2 text-right">
                   <p className="font-semibold">{t('team.members.0.name')}</p>

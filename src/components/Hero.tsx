@@ -8,6 +8,10 @@ import { motion } from 'framer-motion';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
+import HeroImg1 from '../assets/IMG_4202.jpg';
+import HeroImg3 from '../assets/IMG_4977.jpeg';
+import HeroImg4 from '../assets/1.png'
+import HeroImg5 from '../assets/IMG_1485.jpg'
 
 const Hero: React.FC = () => {
   const { t } = useTranslation();
@@ -18,31 +22,33 @@ const Hero: React.FC = () => {
       id: 1,
       title: t('hero.slide1.title'),
       subtitle: t('hero.slide1.subtitle'),
-      image: 'https://images.pexels.com/photos/2988232/pexels-photo-2988232.jpeg?auto=compress&cs=tinysrgb&w=1920'
+      image: HeroImg1
     },
+    /**
     {
       id: 2,
       title: t('hero.slide2.title'),
       subtitle: t('hero.slide2.subtitle'),
       image: 'https://images.pexels.com/photos/9875441/pexels-photo-9875441.jpeg?auto=compress&cs=tinysrgb&w=1920'
     },
+    **/
     {
       id: 3,
       title: t('hero.slide3.title'),
       subtitle: t('hero.slide3.subtitle'),
-      image: 'https://images.pexels.com/photos/3945683/pexels-photo-3945683.jpeg?auto=compress&cs=tinysrgb&w=1920'
+      image: HeroImg3
     },
     {
       id: 4,
       title: t('hero.slide4.title'),
       subtitle: t('hero.slide4.subtitle'),
-      image: 'https://images.pexels.com/photos/6968434/pexels-photo-6968434.jpeg?auto=compress&cs=tinysrgb&w=1920'
+      image: HeroImg4
     },
     {
       id: 5,
       title: t('hero.slide5.title'),
       subtitle: t('hero.slide5.subtitle'),
-      image: 'https://images.pexels.com/photos/8294618/pexels-photo-8294618.jpeg?auto=compress&cs=tinysrgb&w=1920'
+      image: HeroImg5
     }
   ];
 

@@ -2,7 +2,11 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Quote } from 'lucide-react';
+import Photo01 from '../assets/01.png';
+import Photo02 from '../assets/02.jpeg';
+import Photo02b from '../assets/02 (1).jpeg';
+import PhotoIMG from '../assets/IMG_0591.jpeg';
+
 
 const Team: React.FC = () => {
   const { t } = useTranslation();
@@ -14,16 +18,16 @@ const Team: React.FC = () => {
   const teamMembers = t('team.members', { returnObjects: true }) as {
     name: string;
     role: string;
-    quote: string;
+    email: string;
   }[];
 
-  // Stock photos for team members
-  const teamPhotos = [
-    'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400',
-    'https://images.pexels.com/photos/1516680/pexels-photo-1516680.jpeg?auto=compress&cs=tinysrgb&w=400',
-    'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=400',
-    'https://images.pexels.com/photos/3785104/pexels-photo-3785104.jpeg?auto=compress&cs=tinysrgb&w=400'
-  ];
+const teamPhotos = [
+  PhotoIMG,
+  Photo01,
+  Photo02,
+  Photo02b,
+];
+
 
   const container = {
     hidden: { opacity: 0 },
@@ -85,8 +89,7 @@ const Team: React.FC = () => {
               <h3 className="text-xl font-semibold">{member.name}</h3>
               <p className="text-[var(--primary-color)] mb-3">{member.role}</p>
               <div className="relative p-4 bg-[#0a0a0a] rounded-lg mt-4">
-                <Quote size={20} className="absolute text-[var(--primary-color)] opacity-20" />
-                <p className="text-sm text-[var(--text-muted)] italic pl-6">"{member.quote}"</p>
+                <p className="text-sm text-[var(--text-muted)] text-center">{member.email}</p>
               </div>
             </motion.div>
           ))}

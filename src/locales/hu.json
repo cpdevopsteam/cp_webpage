@@ -11,7 +11,7 @@
   "hero": {
     "slide1": {
       "title": "Komplex ipari megoldások",
-      "subtitle": "Villamos - biztonsági - informatikai és üzemirányítási rendszerek"
+      "subtitle": "Villamos - biztonsági - informatikai rendszerek tervezése, kivitelezése"
     },
     "slide2": {
       "title": "Napelem erőművek kivitelezése",
@@ -22,12 +22,12 @@
       "subtitle": "Vagyonvédelem és felügyelet ipari létesítményekben"
     },
     "slide4": {
-      "title": "24/7 Monitoring",
-      "subtitle": "Távoli felügyelet és gyors hibaelhárítás"
+      "title": "Monitoring",
+      "subtitle": "Műszaki ügyelet, üzemzavar-elhárítás"
     },
     "slide5": {
-      "title": "Adatelemzés és AI",
-      "subtitle": "Mesterséges intelligencia alapú előrejelzések"
+      "title": "Szoftverfejlesztés és adatelemzés",
+      "subtitle": "Üzemirányítási rendszerek fejlesztése"
     },
     "cta": "Tudjon meg többet"
   },
@@ -61,7 +61,7 @@
       "title": "Vagyonvédelem",
       "items": [
         "Periméter védelem ellenőrzés",
-        "Thermokamerás rendszerek",
+        "Thermokamerás megoldások",
         "CCTV rendszerek",
         "Beléptetőrendszerek"
       ]
@@ -69,11 +69,11 @@
     "it": {
       "title": "IT és Kommunikáció",
       "items": [
-        "Optikai hálózatok kiépítése",
+        "Struktúrált hálózatok tervezése",
+        "Optikai- és rész hálózatok kiépítése",
         "Vezérlőközpontok telepítése",
         "Rádiós kommunikáció kialakítása",
-        "Szerverek beüzemelése",
-        "Biztonságos VPN kapcsolat létrehozása"
+        "Szerverek beüzemelése"
       ]
     },
     "commissioning": {
@@ -156,22 +156,22 @@
       {
         "name": "Bérces Péter",
         "role": "Ügyvezető",
-        "quote": "Világunk folyamatosan változik. A modern elektronikai megoldások kényelmesebbé teszik egy vállalkozás életét. De egy felelős vezető biztonsági szempontból sem köthet kompromisszumot."
+        "email": "peter.berces@controlpass.hu"
       },
       {
-        "name": "Minta János",
-        "role": "Műszaki Vezető",
-        "quote": "A minőségi munka a legjobb referencia."
+        "name": "Tóth Gábor",
+        "role": "Projektvezető",
+        "email": "gabor.toth@controlpass.hu"
       },
       {
-        "name": "Példa Gábor",
-        "role": "Villamos Mérnök",
-        "quote": "A részletekben rejlik a minőség."
+        "name": "Bérces Barbara",
+        "role": "Gazdasági vezető",
+        "email": "penzugy@controlpass.hu barbara.berces@controlpass.hu"
       },
       {
-        "name": "Teszt Tamás",
-        "role": "IT Szakértő",
-        "quote": "A biztonság nem termék, hanem folyamat."
+        "name": "Martin Dominik",
+        "role": "Vezető villanyszerelő",
+        "email": "dominik.martin@controlpass.hu"
       }
     ]
   },
