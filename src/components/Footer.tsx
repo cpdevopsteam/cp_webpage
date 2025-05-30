@@ -51,7 +51,7 @@ const Footer: React.FC = () => {
             <ul className="space-y-2">
               <li><a href="#" className="nav-link">{t('footer.privacy')}</a></li>
               <li><a href="#" className="nav-link">{t('footer.terms')}</a></li>
-              <li><a href="#" className="nav-link">ÁSZF</a></li>
+              <li><a href="/aszf/index.html" className="nav-link">ÁSZF</a></li>
             </ul>
           </div>
         </div>
