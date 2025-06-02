@@ -41,7 +41,6 @@ const Header: React.FC = () => {
     >
       <div className="container mx-auto px-4 py-3">
         <div className="flex justify-between items-center">
-          {/* Logo and Company Name */}
           <div className="flex-shrink-0 mr-8">
             <a href="#" className="flex items-center gap-3">
               <img src="/aszf/logo-transparent.png" alt="Control Pass Logo" className="w-16 h-16" />
@@ -51,7 +50,6 @@ const Header: React.FC = () => {
             </a>
           </div>
 
-          {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8 flex-grow justify-end">
             {menuItems.map((item) => (
               <a
@@ -63,13 +61,17 @@ const Header: React.FC = () => {
               </a>
             ))}
             <LanguageSwitcher />
-            <a href="http://10.1.1.196/login" rel="noopener noreferrer" className="btn-login whitespace-nowrap">
+            <a 
+              href="https://controlpass.hu/login" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="btn-login whitespace-nowrap"
+            >
               <LogIn size={16} />
               {t('navigation.login')}
             </a>
           </nav>
 
-          {/* Mobile Navigation Toggle */}
           <div className="lg:hidden flex items-center space-x-4">
             <LanguageSwitcher />
             <button
@@ -82,7 +84,6 @@ const Header: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile Navigation Menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -104,10 +105,15 @@ const Header: React.FC = () => {
                     {item.label}
                   </a>
                 ))}
-                <button className="btn-login self-start mt-4">
+                <a 
+                  href="https://controlpass.hu/login"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-login self-start mt-4"
+                >
                   <LogIn size={16} />
                   {t('navigation.login')}
-                </button>
+                </a>
               </nav>
             </div>
           </motion.div>
