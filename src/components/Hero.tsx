@@ -8,10 +8,6 @@ import { motion } from 'framer-motion';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
-import HeroImg1 from '/assets/IMG_4202.jpg';
-import HeroImg3 from '/assets/IMG_4977.jpeg';
-import HeroImg4 from '/assets/1.png'
-import HeroImg5 from '/assets/IMG_1485.jpg'
 
 const Hero: React.FC = () => {
   const { t } = useTranslation();
@@ -22,33 +18,25 @@ const Hero: React.FC = () => {
       id: 1,
       title: t('hero.slide1.title'),
       subtitle: t('hero.slide1.subtitle'),
-      image: HeroImg1
+      image: '/images/hero/IMG_4202.jpg'
     },
-    /**
-    {
-      id: 2,
-      title: t('hero.slide2.title'),
-      subtitle: t('hero.slide2.subtitle'),
-      image: 'https://images.pexels.com/photos/9875441/pexels-photo-9875441.jpeg?auto=compress&cs=tinysrgb&w=1920'
-    },
-    **/
     {
       id: 3,
       title: t('hero.slide3.title'),
       subtitle: t('hero.slide3.subtitle'),
-      image: HeroImg3
+      image: '/images/hero/IMG_4977.jpeg'
     },
     {
       id: 4,
       title: t('hero.slide4.title'),
       subtitle: t('hero.slide4.subtitle'),
-      image: HeroImg4
+      image: '/images/hero/1.png'
     },
     {
       id: 5,
       title: t('hero.slide5.title'),
       subtitle: t('hero.slide5.subtitle'),
-      image: HeroImg5
+      image: '/images/hero/IMG_1485.jpg'
     }
   ];
 

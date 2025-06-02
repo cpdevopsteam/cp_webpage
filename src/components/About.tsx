@@ -3,8 +3,6 @@ import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { CalendarDays, Map } from 'lucide-react';
-import OfficeImg from '/assets/IMG_1496.jpeg'
-import MapImg from '/assets/cp_webpage_map.png'
 
 const About: React.FC = () => {
   const { t } = useTranslation();
@@ -18,7 +16,7 @@ const About: React.FC = () => {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-fixed opacity-20 blur-sm"
         style={{ 
-          backgroundImage: `url(${OfficeImg})`,
+          backgroundImage: `url('/images/about/office.jpeg')`,
           transform: 'scale(1.1)'
         }}
       />
@@ -43,7 +41,7 @@ const About: React.FC = () => {
             className="rounded-lg overflow-hidden"
           >
             <img
-              src = {MapImg}
+              src="/images/about/map.png"
               alt="Control Pass Facilities"
               className="w-full h-full object-cover"
             />

@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next';
 import { Menu, X, ChevronDown, LogIn } from 'lucide-react';
 import LanguageSwitcher from './LanguageSwitcher';
 import { motion, AnimatePresence } from 'framer-motion';
-import logo from '/assets/logo-transparent.png';
 
 const Header: React.FC = () => {
   const { t } = useTranslation();
@@ -45,7 +44,7 @@ const Header: React.FC = () => {
           {/* Logo and Company Name */}
           <div className="flex-shrink-0 mr-8">
             <a href="#" className="flex items-center gap-3">
-              <img src={logo} alt="Control Pass Logo" className="w-16 h-16" />
+              <img src="/aszf/logo-transparent.png" alt="Control Pass Logo" className="w-16 h-16" />
               <span className="text-2xl md:text-3xl font-audiowide text-white whitespace-nowrap logo-title">
                 Control Pass
               </span>

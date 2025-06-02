@@ -2,11 +2,6 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import Photo01 from '/assets/01.png';
-import Photo02 from '/assets/02.jpeg';
-import Photo02b from '/assets/02 (1).jpeg';
-import PhotoIMG from '/assets/IMG_0591.jpeg';
-
 
 const Team: React.FC = () => {
   const { t } = useTranslation();
@@ -21,13 +16,12 @@ const Team: React.FC = () => {
     email: string;
   }[];
 
-const teamPhotos = [
-  PhotoIMG,
-  Photo01,
-  Photo02,
-  Photo02b,
-];
-
+  const teamPhotos = [
+    '/images/team/IMG_0591.jpeg',
+    '/images/team/01.png',
+    '/images/team/02.jpeg',
+    '/images/team/02-1.jpeg',
+  ];
 
   const container = {
     hidden: { opacity: 0 },
