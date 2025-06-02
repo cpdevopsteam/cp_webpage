@@ -80,7 +80,7 @@ const Contact: React.FC = () => {
       value: t('contact.addressValue')
     },
     {
-      icon: <Phone className="text-[var(--primary-color)]" aria-hidden="true" />,
+      icon: <Phone className="text-[var(--primary-color)]\" aria-hidden="true" />,
       title: t('contact.phone'),
       value: t('contact.phoneValue').split('\n').map((line, i) => (
         <div key={i}>{line}</div>
@@ -92,7 +92,7 @@ const Contact: React.FC = () => {
       value: t('contact.emailValue')
     },
     {
-      icon: <Clock className="text-[var(--primary-color)]" aria-hidden="true" />,
+      icon: <Clock className="text-[var(--primary-color)]\" aria-hidden="true" />,
       title: t('contact.hours'),
       value: t('contact.hoursValue')
     }
@@ -157,7 +157,7 @@ const Contact: React.FC = () => {
             {isSubmitted ? (
               <div className="text-center py-12">
                 <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-500/20 mb-4">
-                  <Send className="text-green-500" size={24} aria-hidden="true" />
+                  <Send className="text-green-500\" size={24} aria-hidden="true" />
                 </div>
                 <h3 className="text-2xl font-semibold mb-2">{t('contact.formSuccess')}</h3>
               </div>
