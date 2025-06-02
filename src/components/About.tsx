@@ -3,8 +3,8 @@ import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { CalendarDays, Map } from 'lucide-react';
-import OfficeImg from '../assets/IMG_1496.jpeg'
-import MapImg from '../assets/cp_webpage_map.png'
+import OfficeImg from '/assets/IMG_1496.jpeg'
+import MapImg from '/assets/cp_webpage_map.png'
 
 const About: React.FC = () => {
   const { t } = useTranslation();

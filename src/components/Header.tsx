@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Menu, X, ChevronDown, LogIn } from 'lucide-react';
 import LanguageSwitcher from './LanguageSwitcher';
 import { motion, AnimatePresence } from 'framer-motion';
-import logo from '../assets/logo-transparent.png';
+import logo from '/assets/logo-transparent.png';
 
 const Header: React.FC = () => {
   const { t } = useTranslation();

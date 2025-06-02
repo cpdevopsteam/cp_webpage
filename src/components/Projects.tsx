@@ -3,13 +3,13 @@ import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { ExternalLink } from 'lucide-react';
-import SolarBackgroundImg from '../assets/IMG_1883.jpg'
-import HalmajugraImg from '../assets/Photo_1080295579_DJI_155_jpg_6581333_0_202211313356_photo_original.jpg.jpg'
-import KisparkImg from '../assets/DJI_20240207125846_0012_V.jpg'
-import MezocsatImg from '../assets/mezocsat.png'
-import TrafoImg from '../assets/IMG_6404.jpg'
-import RackImg from '../assets/IMG_1635.jpeg'
-import TrafoImg2 from '../assets/idk.png'
+import SolarBackgroundImg from '/assets/IMG_1883.jpg'
+import HalmajugraImg from '/assets/Photo_1080295579_DJI_155_jpg_6581333_0_202211313356_photo_original.jpg.jpg'
+import KisparkImg from '/assets/DJI_20240207125846_0012_V.jpg'
+import MezocsatImg from '/assets/mezocsat.png'
+import TrafoImg from '/assets/IMG_6404.jpg'
+import RackImg from '/assets/IMG_1635.jpeg'
+import TrafoImg2 from '/assets/idk.png'
 
 const Projects: React.FC = () => {
   const { t } = useTranslation();

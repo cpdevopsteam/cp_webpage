@@ -8,10 +8,10 @@ import { motion } from 'framer-motion';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
-import HeroImg1 from '../assets/IMG_4202.jpg';
-import HeroImg3 from '../assets/IMG_4977.jpeg';
-import HeroImg4 from '../assets/1.png'
-import HeroImg5 from '../assets/IMG_1485.jpg'
+import HeroImg1 from '/assets/IMG_4202.jpg';
+import HeroImg3 from '/assets/IMG_4977.jpeg';
+import HeroImg4 from '/assets/1.png'
+import HeroImg5 from '/assets/IMG_1485.jpg'
 
 const Hero: React.FC = () => {
   const { t } = useTranslation();

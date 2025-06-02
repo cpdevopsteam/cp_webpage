@@ -2,10 +2,10 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import Photo01 from '../assets/01.png';
-import Photo02 from '../assets/02.jpeg';
-import Photo02b from '../assets/02 (1).jpeg';
-import PhotoIMG from '../assets/IMG_0591.jpeg';
+import Photo01 from '/assets/01.png';
+import Photo02 from '/assets/02.jpeg';
+import Photo02b from '/assets/02 (1).jpeg';
+import PhotoIMG from '/assets/IMG_0591.jpeg';
 
 
 const Team: React.FC = () => {
