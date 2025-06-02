@@ -41,7 +41,7 @@ const PrivacyModal: React.FC<PrivacyModalProps> = ({ isOpen, onClose }) => {
                 <div className="flex justify-between items-start mb-4">
                   <div className="flex items-center gap-4">
                     <img src="/aszf/logo-transparent.png" alt="Logo" className="w-12 h-12" />
-                    <Dialog.Title className="text-xl font-audiowide text-white">
+                    <Dialog.Title className="text-xl text-white">
                       Adatvédelmi irányelvek
                     </Dialog.Title>
                   </div>
