@@ -8,6 +8,19 @@
     "contact": "Contact",
     "login": "Login"
   },
+  "cookies": {
+    "message": "This website uses cookies to enhance your browsing experience. Cookies help us understand how you use our website and allow us to improve our services.",
+    "acceptAll": "Accept All",
+    "customize": "Customize",
+    "settings": "Cookie Settings",
+    "save": "Save Settings",
+    "necessary": "Necessary Cookies",
+    "necessaryDescription": "These cookies are essential for the website to function and cannot be switched off.",
+    "analytics": "Analytics Cookies",
+    "analyticsDescription": "These cookies help us understand how you use our website.",
+    "marketing": "Marketing Cookies",
+    "marketingDescription": "These cookies help us show you personalized advertisements."
+  },
   "hero": {
     "slide1": {
       "title": "Complex Industrial Solutions",
