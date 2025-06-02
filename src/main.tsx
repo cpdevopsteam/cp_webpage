@@ -4,7 +4,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import App from './App.tsx';
 import './index.css';
 import './i18n';
-import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
