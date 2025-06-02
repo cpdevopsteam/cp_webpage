@@ -3,34 +3,139 @@
 <head>
   <meta charset="UTF-8">
   <title>Control Pass Kft. Általános Szerződési Feltételek</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --primary-color: #FF8C42;
+      --secondary-color: #2a2a2a;
+      --accent-color: #3498db;
+      --accent-light: #5dade2;
+      --accent-dark: #2980b9;
+      --dark-bg: #0B1120;
+      --card-bg: #131B2E;
+      --text-light: #f5f5f5;
+      --text-muted: #a0a0a0;
+    }
+
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Inter', sans-serif;
+      background-color: var(--dark-bg);
+      color: var(--text-light);
+      margin: 0;
+      padding: 2rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
-    table {
-      width: 80%;
-      border-collapse: collapse;
-      margin: 20px auto;
+
+    .logo-container {
+      margin-bottom: 2rem;
     }
-    th, td {
-      border: 1px solid #ccc;
-      padding: 10px;
+
+    .logo {
+      width: 100px;
+      height: 100px;
+    }
+
+    h1 {
+      font-family: 'Audiowide', sans-serif;
+      color: var(--text-light);
       text-align: center;
+      margin-bottom: 3rem;
+      font-size: 2rem;
+      position: relative;
+      padding-bottom: 1rem;
     }
+
+    h1::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 25%;
+      right: 25%;
+      height: 2px;
+      background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+      border-radius: 2px;
+    }
+
+    table {
+      width: 100%;
+      max-width: 900px;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin: 2rem auto;
+      background-color: var(--card-bg);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    th, td {
+      padding: 1rem;
+      text-align: left;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
     th {
-      background-color: #f2f2f2;
+      background-color: rgba(255, 255, 255, 0.05);
+      font-weight: 600;
+      color: var(--accent-light);
     }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
     a {
       text-decoration: none;
-      color: #0066cc;
+      color: var(--primary-color);
+      transition: color 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    a:hover {
+      color: var(--accent-light);
+    }
+
+    .download-button {
+      background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      font-weight: 500;
+      transition: opacity 0.3s ease;
+    }
+
+    .download-button:hover {
+      opacity: 0.9;
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 1rem;
+      }
+
+      table {
+        font-size: 0.9rem;
+      }
+
+      th, td {
+        padding: 0.75rem;
+      }
     }
   </style>
 </head>
 <body>
-  <div style="text-align: center;">
-    <img src="logo-transparent.png" width="100" height="100" alt="Logo">
+  <div class="logo-container">
+    <img src="logo-transparent.png" class="logo" alt="Logo">
   </div>
-  <h1 style="text-align: center;">Control Pass Kft. Általános Szerződési Feltételek</h1>
+  <h1>Control Pass Kft. Általános Szerződési Feltételek</h1>
   <table>
     <thead>
       <tr>
@@ -42,13 +147,13 @@
     </thead>
     <tbody>
       <tr>
-        <td><a href="CP_ASZF_1_0.pdf" download>ÁSZF 1.0 Letöltés</a></td>
+        <td><a href="CP_ASZF_1_0.pdf" class="download-button" download>ÁSZF 1.0 Letöltés</a></td>
         <td>2024-04-01</td>
         <td>2025-03-31</td>
         <td>1.0</td>
       </tr>
       <tr>
-        <td><a href="CP_ASZF_1_1.pdf" download>ÁSZF 1.1 Letöltés</a></td>
+        <td><a href="CP_ASZF_1_1.pdf" class="download-button" download>ÁSZF 1.1 Letöltés</a></td>
         <td>2025-04-01</td>
         <td>2026-03-31</td>
         <td>1.1</td>
