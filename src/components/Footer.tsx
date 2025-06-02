@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import AszfModal from './AszfModal';
 
 const Footer: React.FC = () => {
   const { t } = useTranslation();
   const currentYear = new Date().getFullYear();
+  const [isAszfOpen, setIsAszfOpen] = useState(false);
 
   return (
     <footer className="bg-[#080808] text-white pt-12 pb-6">
@@ -51,7 +53,14 @@ const Footer: React.FC = () => {
             <ul className="space-y-2">
               <li><a href="#" className="nav-link">{t('footer.privacy')}</a></li>
               <li><a href="#" className="nav-link">{t('footer.terms')}</a></li>
-              <li><a href="/aszf/index.html" className="nav-link">ÁSZF</a></li>
+              <li>
+                <button 
+                  onClick={() => setIsAszfOpen(true)} 
+                  className="nav-link bg-transparent border-none p-0"
+                >
+                  ÁSZF
+                </button>
+              </li>
             </ul>
           </div>
         </div>
@@ -62,6 +71,8 @@ const Footer: React.FC = () => {
           </p>
         </div>
       </div>
+
+      <AszfModal isOpen={isAszfOpen} onClose={() => setIsAszfOpen(false)} />
     </footer>
   );
 };
