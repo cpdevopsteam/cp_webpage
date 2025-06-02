@@ -27,122 +27,123 @@
     },
     "slide5": {
       "title": "Data Analysis and AI",
-      "subtitle": "Artificial intelligence based predictions"
+      "subtitle": "AI-based predictions and system optimization"
     },
     "cta": "Learn More"
   },
   "services": {
     "title": "Our Services",
     "planning": {
-      "title": "Planning & Preparation",
+      "title": "Planning & Design",
       "items": [
         "Industrial investment preparation",
-        "Design",
-        "Groundwork",
-        "Perimeter protection"
+        "Comprehensive system design",
+        "Site preparation planning",
+        "Perimeter protection design"
       ]
     },
     "implementation": {
       "title": "Implementation",
       "items": [
         "Load-bearing structure development",
-        "Power transmission cable laying",
-        "Station installation"
+        "Power transmission cable installation",
+        "Station deployment and setup"
       ]
     },
     "electrical": {
-      "title": "Electrical Works",
+      "title": "Electrical Systems",
       "items": [
-        "Low and medium voltage station and equipment installation, measurement",
-        "Electrical safety and standards inspections"
+        "Low and medium voltage station installation",
+        "Equipment calibration and testing",
+        "Electrical safety compliance inspections"
       ]
     },
     "security": {
       "title": "Security Systems",
       "items": [
         "Perimeter protection monitoring",
-        "Thermal camera systems",
-        "CCTV systems",
-        "Access control systems"
+        "Thermal imaging systems",
+        "CCTV implementation",
+        "Access control solutions"
       ]
     },
     "it": {
-      "title": "IT & Communication",
+      "title": "IT Infrastructure",
       "items": [
         "Optical network development",
-        "Control center installation",
-        "Radio communication setup",
-        "Server commissioning",
-        "Secure VPN connection establishment"
+        "Control center setup",
+        "Radio communication systems",
+        "Server deployment",
+        "Secure VPN implementation"
       ]
     },
     "commissioning": {
-      "title": "Commissioning",
+      "title": "System Commissioning",
       "items": [
-        "Programming protection elements",
-        "Security and IT system parameter setting",
-        "Preparation of necessary logs"
+        "Protection system programming",
+        "Security and IT system configuration",
+        "Documentation and certification"
       ]
     },
     "operations": {
-      "title": "Facility Operations",
+      "title": "Facility Management",
       "items": [
         "Technical supervision",
-        "Troubleshooting",
-        "Inspection maintenance",
-        "Thermal camera drone inspection",
-        "Fault repair",
-        "Area maintenance",
-        "Audit",
-        "24/7 customer service"
+        "Emergency response",
+        "Preventive maintenance",
+        "Thermal drone inspections",
+        "Repair services",
+        "Site maintenance",
+        "System auditing",
+        "24/7 support"
       ]
     },
     "monitoring": {
-      "title": "Monitoring",
+      "title": "Remote Monitoring",
       "items": [
-        "Remote monitoring of facilities",
-        "Telemetry data monitoring",
+        "Real-time facility monitoring",
+        "Telemetry data analysis",
         "Security system operation",
-        "IT and communication system monitoring"
+        "Network performance monitoring"
       ]
     },
     "dataAnalysis": {
-      "title": "Data Analysis",
+      "title": "Data Analytics",
       "items": [
         "Telemetry data processing",
-        "Data storage",
-        "Stored data analysis",
-        "AI-based prediction"
+        "Secure data storage",
+        "Advanced analytics",
+        "AI-powered predictions"
       ]
     }
   },
   "projects": {
-    "title": "Projects",
-    "viewProject": "View Project",
+    "title": "Featured Projects",
+    "viewProject": "View Details",
     "items": [
       {
-        "title": "Halmajugra 20 MW Solar Power Plant",
-        "description": "Electrical works and security system implementation for nominal capacity power plant"
+        "title": "Halmajugra 20MW Solar Plant",
+        "description": "Complete electrical and security system implementation for a utility-scale solar power plant"
       },
       {
-        "title": "45 x 1 MW Solar Power Plants",
-        "description": "Establishment of nominal capacity power plants throughout the country"
+        "title": "45 x 1MW Solar Installations",
+        "description": "Nationwide deployment of distributed solar power systems"
       },
       {
-        "title": "Mezőcsát 50 MW Solar Power Plant",
-        "description": "Electrical works, security and control system implementation for nominal capacity power plant"
+        "title": "Mezőcsát 50MW Solar Plant",
+        "description": "Large-scale electrical, security, and control system implementation"
       },
       {
-        "title": "Enertech and KVGY Transformer Stations",
-        "description": "Implementation of thermal camera protection"
+        "title": "Transformer Station Security",
+        "description": "Advanced thermal imaging protection systems for critical infrastructure"
       },
       {
-        "title": "IBCS Server Room",
-        "description": "Construction, structured optical and copper network establishment"
+        "title": "Enterprise Data Center",
+        "description": "Design and implementation of high-availability server infrastructure"
       },
       {
-        "title": "Over 100 MW Total Capacity Power Plants",
-        "description": "Operation and supervision"
+        "title": "100MW+ Portfolio Management",
+        "description": "Ongoing operations and maintenance of multiple power facilities"
       }
     ]
   },
@@ -151,43 +152,43 @@
   },
   "team": {
     "title": "Our Team",
-    "description": "Our expert team is committed to delivering high-quality work.",
+    "description": "Our expert team combines decades of experience in industrial automation, security systems, and renewable energy.",
     "members": [
       {
         "name": "Péter Bérces",
         "role": "CEO",
-        "quote": "Our world is constantly changing. Modern electronic solutions make business life more comfortable. But a responsible leader cannot compromise on security."
+        "email": "peter.berces@controlpass.hu"
       },
       {
-        "name": "John Sample",
-        "role": "Technical Director",
-        "quote": "Quality work is the best reference."
+        "name": "Gábor Tóth",
+        "role": "Project Manager",
+        "email": "gabor.toth@controlpass.hu"
       },
       {
-        "name": "Gabriel Example",
-        "role": "Electrical Engineer",
-        "quote": "Quality is in the details."
+        "name": "Barbara Bérces",
+        "role": "Financial Director",
+        "email": "barbara.berces@controlpass.hu"
       },
       {
-        "name": "Tom Test",
-        "role": "IT Expert",
-        "quote": "Security is not a product but a process."
+        "name": "Dominik Martin",
+        "role": "Lead Electrician",
+        "email": "dominik.martin@controlpass.hu"
       }
     ]
   },
   "about": {
     "title": "About Us",
     "founded": "Founded: 2020",
-    "description": "Control Pass Kft. was founded in 2020 with the intention of providing high-quality and complex services for the construction, supervision, and operation of electrical, security, IT, and control systems for industrial facilities.",
-    "mission": "Our determined goal is to develop a quality and secure service package for our clients in all aspects, from the design phase, through implementation and project management, to monitoring and operational solutions.",
-    "experience": "We have serious experience in implementing industrial facilities utilizing renewable energies. Whether it's 50 kilowatts or several hundred megawatt power plants.",
-    "monitoring": "Thanks to our self-developed monitoring and control technology solutions, we are able to monitor the built systems in real-time. And with our extensive network, we can intervene in a short time in case of a problem.",
-    "coverage": "We currently implement nationwide coverage with 6 bases."
+    "description": "Control Pass Ltd. was established in 2020 to provide comprehensive, high-quality services for industrial electrical, security, IT, and control systems.",
+    "mission": "Our mission is to deliver end-to-end solutions that meet the highest standards of quality and security, from initial design through implementation to ongoing monitoring and operational support.",
+    "experience": "We bring extensive experience in renewable energy infrastructure, from 50-kilowatt installations to hundred-megawatt utility-scale facilities.",
+    "monitoring": "Through our proprietary monitoring and control solutions, we provide real-time system oversight and rapid response capabilities across our service network.",
+    "coverage": "We maintain nationwide coverage through our network of 6 strategic service locations."
   },
   "contact": {
-    "title": "Contact",
+    "title": "Contact Us",
     "address": "Address",
-    "addressValue": "7627 Pécs, Vadász utca 83., Hungary",
+    "addressValue": "83 Vadász Street, Pécs 7627, Hungary",
     "phone": "Phone",
     "phoneValue": "Technical Support: +36 70 602 2199\nFinance: +36 70 701 7573",
     "email": "Email",
@@ -198,8 +199,8 @@
     "formEmail": "Email",
     "formSubject": "Subject",
     "formMessage": "Message",
-    "formSubmit": "Send",
-    "formSuccess": "Thank you for your message! We will get back to you soon."
+    "formSubmit": "Send Message",
+    "formSuccess": "Thank you for your message! We'll respond shortly."
   },
   "footer": {
     "rights": "All rights reserved.",
