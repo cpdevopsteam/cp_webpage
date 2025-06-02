@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import AszfModal from './AszfModal';
+import PrivacyModal from './PrivacyModal';
+import TermsModal from './TermsModal';
 
 const Footer: React.FC = () => {
   const { t } = useTranslation();
   const currentYear = new Date().getFullYear();
   const [isAszfOpen, setIsAszfOpen] = useState(false);
+  const [isPrivacyOpen, setIsPrivacyOpen] = useState(false);
+  const [isTermsOpen, setIsTermsOpen] = useState(false);
 
   return (
     <footer className="bg-[#080808] text-white pt-12 pb-6">
@@ -51,8 +55,22 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="text-lg font-medium mb-6">Legal</h4>
             <ul className="space-y-2">
-              <li><a href="#" className="nav-link">{t('footer.privacy')}</a></li>
-              <li><a href="#" className="nav-link">{t('footer.terms')}</a></li>
+              <li>
+                <button 
+                  onClick={() => setIsPrivacyOpen(true)} 
+                  className="nav-link bg-transparent border-none p-0"
+                >
+                  {t('footer.privacy')}
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => setIsTermsOpen(true)} 
+                  className="nav-link bg-transparent border-none p-0"
+                >
+                  {t('footer.terms')}
+                </button>
+              </li>
               <li>
                 <button 
                   onClick={() => setIsAszfOpen(true)} 
@@ -73,6 +91,8 @@ const Footer: React.FC = () => {
       </div>
 
       <AszfModal isOpen={isAszfOpen} onClose={() => setIsAszfOpen(false)} />
+      <PrivacyModal isOpen={isPrivacyOpen} onClose={() => setIsPrivacyOpen(false)} />
+      <TermsModal isOpen={isTermsOpen} onClose={() => setIsTermsOpen(false)} />
     </footer>
   );
 };
