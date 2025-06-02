@@ -8,19 +8,6 @@
     "contact": "Kapcsolat",
     "login": "Belépés"
   },
-  "cookies": {
-    "message": "Ez a weboldal sütiket használ a felhasználói élmény javítása érdekében. A sütik segítenek nekünk megérteni, hogyan használja weboldalunkat, és lehetővé teszik számunkra szolgáltatásaink fejlesztését.",
-    "acceptAll": "Összes elfogadása",
-    "customize": "Testreszabás",
-    "settings": "Süti beállítások",
-    "save": "Beállítások mentése",
-    "necessary": "Szükséges sütik",
-    "necessaryDescription": "Ezek a sütik elengedhetetlenek a weboldal működéséhez és nem kapcsolhatók ki.",
-    "analytics": "Analitikai sütik",
-    "analyticsDescription": "Ezek a sütik segítenek nekünk megérteni, hogyan használja weboldalunkat.",
-    "marketing": "Marketing sütik",
-    "marketingDescription": "Ezek a sütik segítenek nekünk személyre szabott hirdetések megjelenítésében."
-  },
   "hero": {
     "slide1": {
       "title": "Komplex ipari megoldások",

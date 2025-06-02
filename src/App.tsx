@@ -8,17 +8,18 @@ import Team from './components/Team';
 import About from './components/About';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import CookieConsent from './components/CookieConsent';
 import { useTranslation } from 'react-i18next';
 
 function App() {
   const { i18n } = useTranslation();
   
+  // Set document title based on language
   React.useEffect(() => {
     document.title = i18n.language === 'hu' 
       ? 'Control Pass Kft. | Ipari elektromos és biztonságtechnikai rendszerek' 
       : 'Control Pass Kft. | Industrial Electrical and Security Systems';
 
+    // Add scroll event listener to toggle scrollbar visibility
     let scrollTimeout: number;
     const handleScroll = () => {
       document.body.classList.add('scrolling');
@@ -48,7 +49,6 @@ function App() {
         <Contact />
       </main>
       <Footer />
-      <CookieConsent />
     </div>
   );
 }
