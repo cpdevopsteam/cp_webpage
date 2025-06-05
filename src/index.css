@@ -4,14 +4,14 @@
 
 :root {
   --primary-color: #FF8C42;
-  --secondary-color: #4a5568;
+  --secondary-color: #2a2a2a;
   --accent-color: #3498db;
   --accent-light: #5dade2;
   --accent-dark: #2980b9;
-  --dark-bg: #f8fafc;
-  --card-bg: #ffffff;
-  --text-light: #1a202c;
-  --text-muted: #4a5568;
+  --dark-bg: #0B1120;
+  --card-bg: #131B2E;
+  --text-light: #f5f5f5;
+  --text-muted: #a0a0a0;
 }
 
 body {
@@ -52,7 +52,7 @@ body.scrolling::-webkit-scrollbar-thumb {
 
 /* Navigation animations */
 .nav-link {
-  @apply relative text-sm font-medium text-[var(--text-light)] transition-colors duration-300;
+  @apply relative text-sm font-medium text-white transition-colors duration-300;
 }
 
 .nav-link::after {
@@ -61,7 +61,7 @@ body.scrolling::-webkit-scrollbar-thumb {
 }
 
 .nav-link:hover {
-  @apply text-[var(--accent-color)];
+  @apply text-[var(--accent-light)];
 }
 
 .nav-link:hover::after {
@@ -88,7 +88,7 @@ body.scrolling::-webkit-scrollbar-thumb {
 }
 
 .service-card {
-  @apply p-6 rounded-lg bg-[var(--card-bg)] shadow-md transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10 border border-gray-200 hover:border-[var(--accent-color)];
+  @apply p-6 rounded-lg bg-[var(--card-bg)] shadow-md transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10 border border-gray-800 hover:border-[var(--accent-color)];
 }
 
 .team-card {
@@ -116,7 +116,7 @@ body.scrolling::-webkit-scrollbar-thumb {
 }
 
 .section-title {
-  @apply text-3xl md:text-4xl font-bold mb-8 relative inline-block pb-4 text-center text-[var(--text-light)];
+  @apply text-3xl md:text-4xl font-bold mb-8 relative inline-block pb-4 text-center;
 }
 
 .section-title::after {
